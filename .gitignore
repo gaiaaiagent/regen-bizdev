@@ -1,0 +1,7 @@
+# Sensitive client data - do not push to public repos
+clients/*/*.pdf
+clients/*/*.txt
+.env
+__pycache__/
+*.pyc
+venv/
