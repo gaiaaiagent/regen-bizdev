@@ -1,0 +1,63 @@
+{
+  "project": "Oakwood Manor Restoration Site",
+  "location": "Somerset, UK",
+  "survey_date": "2025-09-15",
+  "methodology": "Wallacea Trust v2.1",
+  "taxa": [
+    {
+      "taxon": "3D Forest Structure",
+      "metrics": {
+        "canopy_cover_pct": 42,
+        "understory_density": 3.2,
+        "deadwood_volume_m3_ha": 8.5
+      },
+      "conservation_value": 3,
+      "relative_abundance": 4
+    },
+    {
+      "taxon": "Invertebrates",
+      "metrics": {
+        "species_richness": 47,
+        "indicator_species_present": ["Stag Beetle", "White-clawed Crayfish"],
+        "sampling_method": "pitfall_and_sweep"
+      },
+      "conservation_value": 4,
+      "relative_abundance": 3
+    },
+    {
+      "taxon": "Breeding Birds",
+      "metrics": {
+        "species_richness": 23,
+        "red_list_species": ["Turtle Dove", "Cuckoo"],
+        "territory_mapping": true
+      },
+      "conservation_value": 5,
+      "relative_abundance": 3
+    },
+    {
+      "taxon": "Bat Fauna",
+      "metrics": {
+        "species_richness": 8,
+        "activity_index": 342,
+        "roost_sites_confirmed": 2,
+        "detector_type": "AudioMoth"
+      },
+      "conservation_value": 4,
+      "relative_abundance": 2
+    },
+    {
+      "taxon": "Higher Plants",
+      "metrics": {
+        "species_richness": 89,
+        "native_pct": 78,
+        "indicator_species": ["Bluebell", "Early Purple Orchid", "Wood Anemone"]
+      },
+      "conservation_value": 3,
+      "relative_abundance": 4
+    }
+  ],
+  "composite_score": 56.2,
+  "baseline_score": 31.8,
+  "change_pct": 76.7,
+  "next_survey_due": "2027-09-15"
+}

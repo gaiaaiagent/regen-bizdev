@@ -1,0 +1,22 @@
+{
+  "asset_name": "[Asset Name]",
+  "partner": "[Partner Organization]",
+  "location": "[Region / Country]",
+  "area_hectares": 0,
+  "methodology": "[Methodology Name and Version]",
+  "dimensions": [
+    {
+      "dimension": "[Ecological Outcome]",
+      "metric": "[Unit of Measurement]",
+      "baseline_value": 0.0,
+      "current_value": 0.0,
+      "measurement": "[Collection method]",
+      "confidence": "high|medium|low"
+    }
+  ],
+  "composite_nature_equity_score": 0.0,
+  "vintage_year": 0,
+  "monitoring_frequency": "annual|biannual|quarterly",
+  "verification_status": "unverified|in_review|verified",
+  "target_investors": []
+}

@@ -1,0 +1,29 @@
+{
+  "project": "[Project Name]",
+  "location": "[Region, Country]",
+  "survey_date": "YYYY-MM-DD",
+  "methodology": "[Methodology Name and Version]",
+  "taxa": [
+    {
+      "taxon": "[Taxon Group Name]",
+      "metrics": {
+        "species_richness": 0,
+        "indicator_species_present": [],
+        "sampling_method": "[method]"
+      },
+      "conservation_value": 0,
+      "relative_abundance": 0,
+      "notes": "[Field observations]"
+    }
+  ],
+  "composite_score": 0.0,
+  "baseline_score": 0.0,
+  "change_pct": 0.0,
+  "survey_metadata": {
+    "surveyor": "[Organization]",
+    "weather_conditions": "[Conditions during survey]",
+    "equipment": [],
+    "quality_assurance": "[QA protocol]"
+  },
+  "next_survey_due": "YYYY-MM-DD"
+}

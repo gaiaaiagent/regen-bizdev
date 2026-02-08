@@ -1,0 +1,54 @@
+{
+  "asset_name": "West African Cocoa Agroforestry Nature Equity",
+  "partner": "Ritter Sport",
+  "location": "Cote d'Ivoire / Ghana",
+  "area_hectares": 2400,
+  "methodology": "Landler Natural Capital Assessment v3",
+  "dimensions": [
+    {
+      "dimension": "Carbon Sequestration",
+      "metric": "tCO2e/ha/yr",
+      "baseline_value": 2.1,
+      "current_value": 5.8,
+      "measurement": "Remote sensing + field sampling",
+      "confidence": "high"
+    },
+    {
+      "dimension": "Biodiversity",
+      "metric": "Landler Biodiversity Index",
+      "baseline_value": 0.32,
+      "current_value": 0.58,
+      "measurement": "eDNA + acoustic monitoring + visual surveys",
+      "confidence": "medium"
+    },
+    {
+      "dimension": "Soil Health",
+      "metric": "Soil organic carbon (%)",
+      "baseline_value": 1.4,
+      "current_value": 2.1,
+      "measurement": "Field sampling (0-30cm depth)",
+      "confidence": "high"
+    },
+    {
+      "dimension": "Water Regulation",
+      "metric": "Infiltration rate (mm/hr)",
+      "baseline_value": 12,
+      "current_value": 28,
+      "measurement": "Hydrological modeling + field validation",
+      "confidence": "medium"
+    },
+    {
+      "dimension": "Social Impact",
+      "metric": "Farmer livelihoods index",
+      "baseline_value": 0.41,
+      "current_value": 0.67,
+      "measurement": "Surveys + economic analysis",
+      "confidence": "medium"
+    }
+  ],
+  "composite_nature_equity_score": 72.4,
+  "vintage_year": 2025,
+  "monitoring_frequency": "annual",
+  "verification_status": "unverified",
+  "target_investors": ["impact_funds", "corporate_sustainability", "sovereign_wealth"]
+}
