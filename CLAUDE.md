@@ -63,7 +63,9 @@ regen-bizdev/
 │   └── landbanking-group/         # Prospect brief, alignment memos, demo-config.md, mock-data/
 ├── demos/
 │   ├── renew-demo.md              # 4-act demo script with presenter notes + fallbacks
-│   └── landbanking-demo.md        # 4-act demo script with presenter notes + fallbacks
+│   ├── landbanking-demo.md        # 4-act demo script with presenter notes + fallbacks
+│   ├── knowledge-graph-demo.md    # KOI infrastructure showcase (supplementary, for Q&A)
+│   └── web-app-demo.md            # Registry Review walkthrough (supplementary, for future)
 ├── BUILD_PLAN.md                  # Full plan + MCP validation results + next steps
 └── CLAUDE.md                      # This file
 ```

@@ -1,7 +1,7 @@
 # Landbanking Group Demo Script
 
-**Duration:** 15 minutes (hard cap: 20 min)
-**Structure:** 5 acts — Agent → Knowledge Graph → Web App → Registry Mapping → Verification Plan
+**Duration:** ~11 minutes (hard cap: 15 min)
+**Structure:** 4 acts — Deal Dossier → Credit Class Mapping → Governance Review → Verification Plan
 
 **Important framing:** Landbanking has their own AI ("Va") — do NOT position this as an AI demo. Position as infrastructure + institutional governance.
 
@@ -11,18 +11,18 @@ Load a Claude project with:
 - `foundation/system-prompt.md` (base agent identity)
 - `clients/landbanking-group/demo-config.md` (client overlay)
 - All client docs from `clients/landbanking-group/` (prospect brief, alignment memos)
-- MCP tools: KOI, Ledger, Registry Review
+- MCP tools: KOI, Ledger
 
 Pre-demo checklist:
-- [ ] Registry Review web app loaded and authenticated
 - [ ] KOI MCP responding (`get_stats()` returns data)
 - [ ] Golden outputs ready as fallback
+- [ ] Mock data JSON ready to paste (`cocoa-nature-equity-asset.json`)
 
 ---
 
 ## Demo Sequence
 
-### Act 1: "The Agent" (3 min)
+### Act 1: "We've Analyzed Both Approaches" (2 min)
 
 **PROMPT:**
 > Synthesize everything we know about Landbanking Group. Compare the two alignment memo approaches — $REGEN Token vs Agile Tokenization. Which should we lead with for a first engagement and why? Draft talking points for a first call with Dr. Stuchtey.
@@ -37,43 +37,11 @@ Pre-demo checklist:
 
 **PRESENTER NOTES:** Move through this briskly. Say: "The agent analyzed both partnership approaches and recommends leading with Agile Tokenization. Smart strategic analysis, but not the differentiator."
 
-**TRANSITION:** "Now let me show you the infrastructure that makes this more than analysis..."
+**TRANSITION:** "Now let me show you what registry readiness actually looks like for a Nature Equity Asset..."
 
 ---
 
-### Act 2: "The Knowledge Graph" (3 min)
-
-_See `demos/knowledge-graph-demo.md` for the full reusable script._
-
-**PROMPT 1:**
-> Show me the current state of Regen's knowledge base — how many documents, what sources, and what's been ingested recently.
-
-**PROMPT 2:**
-> Search the knowledge base for "natural capital methodology verification multi-dimensional assets" — show me what the system finds and where it comes from.
-
-**PRESENTER NOTES:** Say: "This is the knowledge infrastructure behind every output. Over 68,000 documents — credit methodologies, governance standards, verification requirements. Not a chatbot's training data. A live knowledge graph with entity relationships, updated automatically from 20+ sensors monitoring Regen's ecosystem. For Landbanking, this would include YOUR data sources alongside Regen's."
-
-**TRANSITION:** "And here's the institutional governance tooling that investors want to see..."
-
----
-
-### Act 3: "The Web App" (4 min)
-
-_See `demos/web-app-demo.md` for the full reusable script._
-
-**ACTION:** Open Registry Review web app. Walk through:
-1. Dashboard with session list
-2. Session workspace with methodology documents
-3. Requirement mapping with coverage metrics (23/23 mapped, 21 high confidence)
-4. PDF annotation with evidence extraction
-
-**PRESENTER NOTES:** Say: "This is the kind of institutional tooling that Hoffmann and Liechtenstein-tier investors want to see. Not a chatbot — a governance review platform with traceable evidence and auditable decisions. Va does the measuring. This does the governing. For Landbanking, we'd fork this with your workflows — Nature Equity Asset review criteria instead of credit methodology criteria."
-
-**TRANSITION:** "Now let me show you what happens when we evaluate a Nature Equity Asset against these standards..."
-
----
-
-### Act 4: "Nature Equity Meets Registry Standards" (3 min) — THE MONEY SHOT
+### Act 2: "Nature Equity Meets Registry Standards" (3 min) — THE MONEY SHOT
 
 **PROMPT:**
 > Here's a Nature Equity Asset from Landbanking's Ritter Sport cocoa partnership [paste cocoa-nature-equity-asset.json]. Translate this into Regen's credit class framework. Map each dimension to existing methodologies, identify eligibility gaps, and generate a registry readiness score.
@@ -92,11 +60,33 @@ _See `demos/web-app-demo.md` for the full reusable script._
 
 **WHY IT'S DIFFERENT:** No generic AI tool can map "Nature Equity" to Regen's specific credit class schema with real eligibility criteria. The gaps are as valuable as the matches — they show exactly where new methodology work is needed.
 
-**PRESENTER NOTES:** Say: "You just saw the knowledge graph and the governance platform. THIS is what they produce when pointed at a Nature Equity Asset. Carbon maps directly. Biodiversity partially. The other three are gaps — and that's the partnership opportunity. We help design the credit classes that don't exist yet."
+**PRESENTER NOTES:** Say: "The agent queried our knowledge graph — over 68,000 documents — and mapped your Nature Equity Asset against real registry requirements. Carbon maps directly. Biodiversity partially. The other three are gaps — and that's the partnership opportunity. We help design the credit classes that don't exist yet."
 
 ---
 
-### Act 5: "The Verification Plan" (2 min)
+### Act 3: "What Governance Review Looks Like" (3 min)
+
+**PROMPT:**
+> If Landbanking submitted this Nature Equity Asset methodology for review on Regen's registry, what would the governance process look like? What would reviewers flag? What evidence would be required to pass?
+
+**EXPECTED OUTPUT:** Governance Review simulation with:
+- Clear **"Simulated Pre-Review"** disclaimer
+- 4-stage review process: Initial submission → Internal review (~3 weeks) → Expert peer review → Public comment
+- Review checklist with pass/flag/fail per criterion (scientific basis, additionality, permanence, MRV feasibility, leakage, conservative estimates, stakeholder impact, data quality)
+- Specific reviewer flags:
+  - "Landler Biodiversity Index is proprietary — needs independent validation"
+  - "Multi-dimensional composite has no precedent on Regen"
+  - "Medium confidence on 3/5 dimensions needs improvement pathway"
+- Required evidence package per criterion
+- Estimated timeline: ~24-38 weeks (longer than typical due to multi-dimensional scope)
+
+**WHY IT'S DIFFERENT:** This shows Regen as an institutional process with standards and accountability. This is what Hoffmann and Liechtenstein-tier investors care about. Landbanking's own AI can't simulate a review process it doesn't participate in.
+
+**PRESENTER NOTES:** Say: "This is what institutional governance looks like. Not a rubber stamp — real reviewer flags, real evidence requirements, a realistic timeline. This is the credibility layer that makes Nature Equity Assets investable for institutional capital."
+
+---
+
+### Act 4: "The Verification Plan" (2 min)
 
 **PROMPT:**
 > Draft a verification and MRV plan for this Nature Equity Asset. Who validates each dimension, what data flows from Landler to Regen's registry, and what's the monitoring schedule?
@@ -116,9 +106,9 @@ _See `demos/web-app-demo.md` for the full reusable script._
 
 ---
 
-### Close — "The Platform Vision" (1 min)
+### Close — "Landler Measures. Regen Governs." (1 min)
 
-> "Everything you just saw — the knowledge graph, the governance platform, the methodology mapping, the verification plan — this is registry infrastructure, not AI synthesis."
+> "Everything you just saw — the methodology mapping against real credit classes, the governance review simulation, the verification plan — this is registry infrastructure, not AI synthesis."
 >
 > "Va does the measuring. Your KOI instance does the knowledge management. Regen's registry does the governance. Three layers, each doing what it's best at."
 >
@@ -144,20 +134,18 @@ _See `demos/web-app-demo.md` for the full reusable script._
 ## Fallback Strategy
 
 If MCP tools return sparse results during live demo:
-- **Knowledge graph (Act 2):** Pre-cached stats (68K+ docs) work fine. Skip SPARQL if slow (requires auth). Search results are the showpiece. See `demos/cached-outputs/act2-koi-*.md` for fallback data.
-- **Web app (Act 3):** Screenshots/screen recording as backup. Test authentication on demo morning.
-- **Credit class mapper (Act 4):** Carbon mapping will be strong (C01-C09 have the most data). Use golden output from `golden-outputs/act4-credit-class-mapper.md` if needed. Frame biodiversity gaps as: "BT01 exists but is new — this is exactly the kind of methodology work the partnership would produce."
-- **Governance review:** The 4-stage review process is well-documented in KOI (registry handbook). Even without Registry Review MCP, the simulation can be constructed from handbook documentation.
-- **Verification plan (Act 5):** Architecture design, not query-dependent. Robust regardless of live query results.
+- **Credit class mapper (Act 2):** Carbon mapping will be strong (C01-C09 have the most data). Use golden output from `golden-outputs/act2-credit-class-mapper.md` if needed. Frame biodiversity gaps as: "BT01 exists but is new — this is exactly the kind of methodology work the partnership would produce."
+- **Governance review (Act 3):** The 4-stage review process is well-documented in KOI (registry handbook). Even without live queries, the simulation can be constructed from handbook documentation. Golden output at `golden-outputs/act3-governance-review.md`.
+- **Verification plan (Act 4):** Architecture design, not query-dependent. Robust regardless of live query results. Golden output at `golden-outputs/act4-verification-plan.md`.
 - **Always show the live queries happening** — even partial results demonstrate real infrastructure.
 
 ## Timing Guide
 
 | Act | Target | Hard Max | Cut Plan |
 |-----|--------|----------|----------|
-| 1 - The Agent | 3 min | 4 min | Skip memo comparison detail, just show recommendation |
-| 2 - Knowledge Graph | 3 min | 4 min | Skip SPARQL, do stats + search only |
-| 3 - Web App | 4 min | 5 min | Skip PDF annotation step |
-| 4 - Registry Mapping | 3 min | 4 min | Use golden output if agent is slow |
-| 5 - Verification Plan | 2 min | 3 min | Verbal summary + point to sprint proposal |
-| **Total** | **15 min** | **20 min** | |
+| 1 - Deal Dossier | 2 min | 3 min | Skip memo comparison detail, just show recommendation |
+| 2 - Credit Class Mapper | 3 min | 4 min | Use golden output if agent is slow |
+| 3 - Governance Review | 3 min | 4 min | Skip evidence package detail, focus on reviewer flags |
+| 4 - Verification Plan | 2 min | 3 min | Verbal summary + point to sprint proposal |
+| Close | 1 min | 1 min | — |
+| **Total** | **~11 min** | **15 min** | |

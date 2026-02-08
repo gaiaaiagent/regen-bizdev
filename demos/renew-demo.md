@@ -1,7 +1,7 @@
 # Renew/RePlanet Demo Script
 
-**Duration:** 15 minutes (hard cap: 20 min)
-**Structure:** 5 acts — Agent → Knowledge Graph → Web App → Registry Mapping → Integration
+**Duration:** ~11 minutes (hard cap: 15 min)
+**Structure:** 4 acts — Deal Dossier → Credit Class Mapping → Data Anchoring → Integration Blueprint
 
 ## Setup
 
@@ -9,18 +9,18 @@ Load a Claude project with:
 - `foundation/system-prompt.md` (base agent identity)
 - `clients/renew-replanet/demo-config.md` (client overlay)
 - All client docs from `clients/renew-replanet/` (prospect brief, call transcripts, PDFs)
-- MCP tools: KOI, Ledger, Registry Review
+- MCP tools: KOI, Ledger
 
 Pre-demo checklist:
-- [ ] Registry Review web app loaded and authenticated
 - [ ] KOI MCP responding (`get_stats()` returns data)
 - [ ] Golden outputs ready as fallback
+- [ ] Mock data JSON ready to paste (`uk-restoration-biodiversity-survey.json`)
 
 ---
 
 ## Demo Sequence
 
-### Act 1: "The Agent" (3 min)
+### Act 1: "We've Done Our Homework" (2 min)
 
 **PROMPT:**
 > Synthesize everything we know about Renew from both calls and the prospect brief. What are their top priorities, what's still unresolved, and draft a proposal outline for a registry integration pilot.
@@ -33,43 +33,11 @@ Pre-demo checklist:
 
 **PRESENTER NOTES:** Move through this quickly. Say: "We loaded the call transcripts and prospect brief. The agent synthesized a complete relationship assessment. Impressive but table stakes for a good AI tool."
 
-**TRANSITION:** "Now let me show you what's actually different — the infrastructure behind the agent..."
+**TRANSITION:** "Now let me show you what's actually different about working with our infrastructure..."
 
 ---
 
-### Act 2: "The Knowledge Graph" (3 min)
-
-_See `demos/knowledge-graph-demo.md` for the full reusable script._
-
-**PROMPT 1:**
-> Show me the current state of Regen's knowledge base — how many documents, what sources, and what's been ingested recently.
-
-**PROMPT 2:**
-> Search the knowledge base for "biodiversity credit methodology verification requirements" — show me what the system finds and where it comes from.
-
-**PRESENTER NOTES:** Say: "This is what powers the agent. Over 68,000 documents in a knowledge graph — credit methodologies, governance standards, technical specs. Not a static dataset. New content flows in automatically from 20+ sources. When Renew becomes a partner, you'd get your own instance with sensors pointed at YOUR data sources."
-
-**TRANSITION:** "And here's the web application your team would use directly..."
-
----
-
-### Act 3: "The Web App" (4 min)
-
-_See `demos/web-app-demo.md` for the full reusable script._
-
-**ACTION:** Open Registry Review web app. Walk through:
-1. Dashboard with session list
-2. Session workspace with methodology documents
-3. Requirement mapping with coverage metrics (23/23 mapped, 21 high confidence)
-4. PDF annotation with evidence extraction
-
-**PRESENTER NOTES:** Say: "This is our Registry Review application — React 19 frontend, FastAPI backend. Same tooling our team uses. Mark asked about developer support and API integration — this is what that looks like. A production web app backed by a 24-tool API. For Renew, we'd fork this with your workflows and branding."
-
-**TRANSITION:** "Now let me show you what happens when we point all of this at your specific methodology..."
-
----
-
-### Act 4: "Your Methodology Meets Our Registry" (3 min) — THE MONEY SHOT
+### Act 2: "Your Methodology Meets Our Registry" (3 min) — THE MONEY SHOT
 
 **PROMPT:**
 > Map the Wallacea Trust 5-taxa methodology to Regen's credit class requirements. Show me what aligns, what has gaps, and what evidence would be needed for registry eligibility.
@@ -85,13 +53,32 @@ _See `demos/web-app-demo.md` for the full reusable script._
 - Registry readiness score with rubric
 - Precedents from KOI: biodiversity credit type proposal (forum topic 49), desert regreening credit class proposal (forum topic 490)
 
-**WHY IT'S DIFFERENT:** This output queries Regen's actual credit class registry (13 classes, 5 types) and searches 48K+ documents for methodology precedents. No generic AI tool has access to this data.
+**WHY IT'S DIFFERENT:** This output queries Regen's actual credit class registry (13 classes, 5 types) and searches 68K+ documents for methodology precedents. No generic AI tool has access to this data.
 
-**PRESENTER NOTES:** Point to the credit class IDs. Say: "These aren't made up — BT01 is a real credit class on Regen Ledger for biodiversity. You just saw the knowledge graph and the web app. THIS is what they produce when pointed at your methodology."
+**PRESENTER NOTES:** Point to the credit class IDs. Say: "These aren't made up — BT01 is a real credit class on Regen Ledger for biodiversity. The agent queried our knowledge graph with over 68,000 documents and mapped your methodology against real registry requirements. No other AI tool can do this."
 
 ---
 
-### Act 5: "The Integration Path" (2 min)
+### Act 3: "Here's What Your Data Looks Like On-Chain" (3 min)
+
+**PROMPT:**
+> Here's a sample biodiversity survey from a UK restoration site [paste uk-restoration-biodiversity-survey.json]. Walk me through how this data would be anchored on Regen Ledger — what gets hashed, what the attestation record looks like, and how a third party like BFI could independently verify it.
+
+**EXPECTED OUTPUT:** Data anchoring walkthrough with:
+- Content hashing: survey JSON → SHA-256 digest → content hash identifier
+- `MsgAnchorData`: content hash stored on-chain with timestamp and sender address
+- `MsgAttest`: Renew signs as data collector; BFI can add independent verification attestation
+- Metadata IRI resolution: permanent, verifiable pointer via `api.regen.network`
+- Third-party verification workflow: resolve IRI → verify hash → review attestations
+- Key property: no trust required in any single party — the chain is the source of truth
+
+**WHY IT'S DIFFERENT:** This directly addresses Mark Moore's questions about trust infrastructure and key management. It shows their actual data type flowing through real Ledger mechanics, not a generic blockchain pitch.
+
+**PRESENTER NOTES:** Say: "This is the trust infrastructure Mark asked about. The chain stores proof, not payload. Anyone can independently verify the data hasn't been tampered with. Multiple parties attest — Renew as data collector, BFI as independent verifier. That's composable verification."
+
+---
+
+### Act 4: "The Integration Path" (2 min)
 
 **PROMPT:**
 > Draft a Phase 1 integration architecture for Renew using Regen as backend infrastructure. Show the data flow from field collection through their platform to our registry, including key management and attestation checkpoints. Address Mark Moore's concerns about custodial key management and developer support.
@@ -108,9 +95,9 @@ _See `demos/web-app-demo.md` for the full reusable script._
 
 ---
 
-### Close — "The Platform Vision" (1 min)
+### Close — "Registry Infrastructure, Not Just AI Synthesis" (1 min)
 
-> "Everything you just saw — the knowledge graph with 68,000+ documents, the governance web app, the methodology mapping, the integration blueprint — these are outputs of our registry infrastructure, not just AI synthesis."
+> "Everything you just saw — the methodology mapping against real credit classes, the data anchoring walkthrough, the integration architecture — these are outputs of our registry infrastructure, not just AI synthesis."
 >
 > "Claude Desktop gives you a chatbot. We give you an institutional platform. The same infrastructure Regen built for itself — now available to partners who need registry-grade ecological intelligence."
 >
@@ -134,19 +121,18 @@ _See `demos/web-app-demo.md` for the full reusable script._
 ## Fallback Strategy
 
 If MCP tools return sparse results during live demo:
-- **Knowledge graph (Act 2):** Pre-cached stats (68K+ docs) work fine. Skip SPARQL if slow (requires auth). Search results are the showpiece. See `demos/cached-outputs/act2-koi-*.md` for fallback data.
-- **Web app (Act 3):** Screenshots/screen recording as backup. Test authentication on demo morning.
-- **Credit class mapper (Act 4):** Present the pre-computed golden output from `golden-outputs/act4-credit-class-mapper.md` and explain: "This is what the workflow produces with current registry data."
-- **Integration blueprint (Act 5):** Documentation-based, not query-dependent. Should be robust regardless.
+- **Credit class mapper (Act 2):** Present the pre-computed golden output from `golden-outputs/act2-credit-class-mapper.md` and explain: "This is what the workflow produces with current registry data."
+- **Data anchoring (Act 3):** This act is mostly architecture documentation — not query-dependent. Use golden output from `golden-outputs/act3-data-anchoring.md` if needed. The Ledger mechanics (MsgAnchorData, MsgAttest) are well-documented.
+- **Integration blueprint (Act 4):** Documentation-based, not query-dependent. Should be robust regardless. Golden output at `golden-outputs/act4-integration-blueprint.md`.
 - **Always show the live queries happening** — even partial results demonstrate real infrastructure.
 
 ## Timing Guide
 
 | Act | Target | Hard Max | Cut Plan |
 |-----|--------|----------|----------|
-| 1 - The Agent | 3 min | 4 min | Skip open items, just show Deal Dossier headline |
-| 2 - Knowledge Graph | 3 min | 4 min | Skip SPARQL, do stats + search only |
-| 3 - Web App | 4 min | 5 min | Skip PDF annotation step |
-| 4 - Registry Mapping | 3 min | 4 min | Use golden output if agent is slow |
-| 5 - Integration Path | 2 min | 3 min | Verbal summary + point to sprint proposal |
-| **Total** | **15 min** | **20 min** | |
+| 1 - Deal Dossier | 2 min | 3 min | Skip open items, just show headline |
+| 2 - Credit Class Mapper | 3 min | 4 min | Use golden output if agent is slow |
+| 3 - Data Anchoring | 3 min | 4 min | Skip BFI verification workflow detail |
+| 4 - Integration Path | 2 min | 3 min | Verbal summary + point to sprint proposal |
+| Close | 1 min | 1 min | — |
+| **Total** | **~11 min** | **15 min** | |

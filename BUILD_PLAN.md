@@ -6,7 +6,7 @@ _Target: Feb 11, 2026 internal milestone_
 
 ## Implementation Status & Next Steps
 
-_Last updated: Feb 7, 2026 — expanded to 5-act platform demo_
+_Last updated: Feb 8, 2026 — reverted to 4-act client-tailored demos_
 
 ### Completed (Phase 1 — Day 1)
 
@@ -30,13 +30,13 @@ _Last updated: Feb 7, 2026 — expanded to 5-act platform demo_
 |------|-------------|--------|
 | A | Registry Review MCP validation — all 4 test tools pass | DONE — see §1.1.1 for full results |
 | B.1 | Renew Act 1: Deal Dossier golden output | DONE — `clients/renew-replanet/golden-outputs/act1-deal-dossier.md` |
-| B.2 | Renew Act 2: Credit Class Mapper golden output (THE MONEY SHOT) | DONE — uses real BT01/USS01/MBS01/C01-C09 IDs from live `list_classes()` |
-| B.3 | Renew Act 3: Data Anchoring walkthrough golden output | DONE — references `regen/data/v1`, MsgAnchorData, MsgAttest, IRI resolution |
-| B.4 | Renew Act 4: Integration Blueprint golden output | DONE — addresses Mark Moore's key management + API concerns |
+| B.2 | Renew Act 2: Credit Class Mapper golden output (THE MONEY SHOT) | DONE — `act2-credit-class-mapper.md`, uses real BT01/USS01/MBS01/C01-C09 IDs from live `list_classes()` |
+| B.3 | Renew Act 3: Data Anchoring walkthrough golden output | DONE — `act3-data-anchoring.md`, references `regen/data/v1`, MsgAnchorData, MsgAttest, IRI resolution |
+| B.4 | Renew Act 4: Integration Blueprint golden output | DONE — `act4-integration-blueprint.md`, addresses Mark Moore's key management + API concerns |
 | B.5 | Landbanking Act 1: Deal Dossier + Memo Comparison golden output | DONE — includes head-to-head memo comparison, recommends Agile Tokenization first |
-| B.6 | Landbanking Act 2: Credit Class Mapper golden output (THE MONEY SHOT) | DONE — maps 5 dimensions, uses real credit class IDs, scores 4/10 (realistic) |
-| B.7 | Landbanking Act 3: Governance Review Simulation golden output | DONE — includes simulation disclaimer, 4-stage process, 5 reviewer flags, 24-38 week timeline |
-| B.8 | Landbanking Act 4: Verification Plan golden output | DONE — verifier types per dimension, data flow, monitoring schedule, cost estimates |
+| B.6 | Landbanking Act 2: Credit Class Mapper golden output (THE MONEY SHOT) | DONE — `act2-credit-class-mapper.md`, maps 5 dimensions, uses real credit class IDs, scores 4/10 (realistic) |
+| B.7 | Landbanking Act 3: Governance Review Simulation golden output | DONE — `act3-governance-review.md`, includes simulation disclaimer, 4-stage process, 5 reviewer flags, 24-38 week timeline |
+| B.8 | Landbanking Act 4: Verification Plan golden output | DONE — `act4-verification-plan.md`, verifier types per dimension, data flow, monitoring schedule, cost estimates |
 | C | Quality check all 8 golden outputs against demo script EXPECTED sections | DONE — all pass. No prompt iterations needed. |
 
 ### Next Steps (Phase 3 — Day 3-4)
@@ -47,22 +47,21 @@ One per client, grounded in golden output findings:
 - `clients/renew-replanet/sprint-proposal.md` — 4-phase: credit class mapping → data anchoring pilot → API integration → BFI verification framework
 - `clients/landbanking-group/sprint-proposal.md` — 4-phase: credit class mapping → methodology pre-review → MRV framework → first attestation PoC
 
-**Step E: Expanded Demo — Full Stack Showcase** ✅ DONE (Feb 7)
+**Step E: Demo Scripts & Supporting Materials** ✅ DONE (Feb 7, revised Feb 8)
 
-Demo reframed from 4-act agent demo to 5-act infrastructure platform showcase:
+Demo scripts restored to original 4-act client-tailored structure. Generic infrastructure acts (Knowledge Graph, Web App) removed — KOI stats mentioned in passing during Act 2 presenter notes instead.
 - `foundation/platform-overview.md` — 3-tier offering document (Tier 1: Registry Intelligence, Tier 2: Knowledge Infrastructure, Tier 3: Registry Partnership)
-- `demos/knowledge-graph-demo.md` — Reusable KOI infrastructure demo script (Act 2 insert)
-- `demos/web-app-demo.md` — Reusable Registry Review web app walkthrough (Act 3 insert)
-- `demos/renew-demo.md` — Updated to 5 acts (15 min target, 20 min hard cap)
-- `demos/landbanking-demo.md` — Updated to 5 acts (15 min target, 20 min hard cap)
+- `demos/knowledge-graph-demo.md` — Reusable KOI infrastructure demo (kept as supplementary reference for Q&A)
+- `demos/web-app-demo.md` — Reusable Registry Review walkthrough (kept as supplementary reference for future)
+- `demos/renew-demo.md` — 4-act client-tailored demo (~11 min target, 15 min hard cap)
+- `demos/landbanking-demo.md` — 4-act client-tailored demo (~11 min target, 15 min hard cap)
 
-New demo structure per client:
-1. **Act 1: "The Agent"** (3 min) — Deal Dossier / strategic analysis (table stakes)
-2. **Act 2: "The Knowledge Graph"** (3 min) — KOI stats, search, sensor pipeline
-3. **Act 3: "The Web App"** (4 min) — Registry Review walkthrough
-4. **Act 4: "The Registry Mapping"** (3 min) — THE MONEY SHOT, credit class mapper
-5. **Act 5: "The Integration/Verification"** (2 min) — Client-specific next steps
-6. **Close: "The Platform Vision"** (1 min) — "Claude Desktop gives you a chatbot. We give you an institutional platform."
+Demo structure per client (4 acts + close):
+1. **Act 1: Deal Dossier** (2 min) — Strategic analysis (table stakes, move quickly)
+2. **Act 2: Credit Class Mapper** (3 min) — THE MONEY SHOT, registry mapping with real credit class IDs
+3. **Act 3: Client-Specific** (3 min) — Renew: data anchoring walkthrough / Landbanking: governance review simulation
+4. **Act 4: Next Steps** (2 min) — Renew: integration blueprint / Landbanking: verification plan
+5. **Close** (1 min) — "Registry infrastructure, not just AI synthesis"
 
 **Step F: Polish & Review (Day 4 — Feb 11)**
 - Run both full demo flows end-to-end
@@ -161,10 +160,10 @@ regen-bizdev/
 │       └── landbanking_group_alignment_memo.pdf
 │
 ├── demos/                         # Ready-to-run demo scripts
-│   ├── renew-demo.md              # 5-act demo: Agent → KOI → Web App → Registry → Integration
-│   ├── landbanking-demo.md        # 5-act demo: Agent → KOI → Web App → Registry → Verification
-│   ├── knowledge-graph-demo.md    # Reusable KOI infrastructure showcase (Act 2 insert)
-│   └── web-app-demo.md            # Reusable Registry Review walkthrough (Act 3 insert)
+│   ├── renew-demo.md              # 4-act demo: Dossier → Mapper → Data Anchoring → Integration
+│   ├── landbanking-demo.md        # 4-act demo: Dossier → Mapper → Governance Review → Verification
+│   ├── knowledge-graph-demo.md    # KOI infrastructure showcase (supplementary, for Q&A)
+│   └── web-app-demo.md            # Registry Review walkthrough (supplementary, for future)
 │
 ├── BUILD_PLAN.md                  # This file
 ├── CLAUDE.md
@@ -803,16 +802,15 @@ Day 2 (Fri Feb 7 evening) ✅ COMPLETE
 ├── Landbanking golden outputs (4 acts) ✅ All quality checks pass
 └── Quality review against demo script EXPECTED sections ✅ No iterations needed
 
-Day 3 (Fri Feb 7 late evening) ✅ COMPLETE
+Day 3 (Fri Feb 7 late evening → Sat Feb 8) ✅ COMPLETE
 ├── Sprint proposals written (one per client) ✅
-├── Expanded demo: platform-overview.md ✅
-├── Expanded demo: knowledge-graph-demo.md ✅
-├── Expanded demo: web-app-demo.md ✅
-├── Updated renew-demo.md to 5 acts ✅
-└── Updated landbanking-demo.md to 5 acts ✅
+├── Platform overview: platform-overview.md ✅
+├── Supplementary demos: knowledge-graph-demo.md, web-app-demo.md ✅
+├── Reverted renew-demo.md to 4-act client-tailored structure ✅
+└── Reverted landbanking-demo.md to 4-act client-tailored structure ✅
 
 Day 4 (Mon Feb 10)
-├── End-to-end timed run of both 5-act demos
+├── End-to-end timed run of both 4-act demos
 ├── Test Registry Review web app authentication
 ├── Record screen capture fallback for web app act
 └── Prepare screenshots for offline fallback
