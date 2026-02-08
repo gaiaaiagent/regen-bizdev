@@ -31,21 +31,29 @@ Requires KOI MCP tools available in session. No client-specific configuration ne
 ### Step 2: Entity Graph (60 sec)
 
 **PROMPT:**
-> Run a SPARQL query to show me the relationship between credit classes and methodology documents in the knowledge graph. Show the connections — not just a flat list.
+> Run a SPARQL query to show me the relationship between credit classes and other entities in the knowledge graph — organizations, evidence, standards. Show the connections — not just a flat list.
 
 **EXAMPLE SPARQL (if the agent needs guidance):**
 ```sparql
-SELECT ?class ?className ?doc ?docTitle
+SELECT ?className ?relation ?targetLabel ?targetType
 WHERE {
-  ?class a koi:CreditClass ;
-         rdfs:label ?className .
-  ?doc koi:references ?class ;
-       dc:title ?docTitle .
+  ?class a ?ctype .
+  FILTER(CONTAINS(STR(?ctype), "CREDIT_CLASS"))
+  ?class rdfs:label ?className .
+  ?other ?relation ?class .
+  ?other rdfs:label ?targetLabel .
+  ?other a ?targetType .
+  FILTER(?targetType != ?ctype)
 }
 LIMIT 20
 ```
 
-**EXPECTED OUTPUT:** Entity relationship results showing credit classes connected to their methodology documents, governance discussions, and review materials.
+**EXPECTED OUTPUT:** Entity relationship table showing credit classes connected to organizations (Regen Network, Verra, Ecometric), evidence reports (monitoring reports, verification reports), and standards. Example rows:
+- C01 → associated_with → Verra (ORGANIZATION)
+- C01 → purchased → Microsoft (ORGANIZATION)
+- VCS001 → supports → monitoring_report_001 (EVIDENCE)
+- USS01-CreditBatch → supports → Verifit Validation & Verification Report (EVIDENCE)
+- Grasslands Carbon Plus → manages → RND Inc (ORGANIZATION)
 
 **PRESENTER NOTES:** Say: "This is a knowledge GRAPH, not a document store. Entities are connected — a credit class links to its methodology, which links to governance discussions, which links to reviewer feedback. When the agent searches for 'biodiversity methodology,' it traverses these relationships. A flat document search can't do this."
 
@@ -79,8 +87,8 @@ LIMIT 20
 ## Fallback
 
 If `get_stats()` or `sparql_query()` are slow or return errors:
-- Use pre-cached stats: "68,000+ documents from 8 source types"
-- Skip the SPARQL query — the search results in Step 3 are more visually impressive anyway
+- Use pre-cached stats: "68,000+ documents from 20+ source types" (see `cached-outputs/act2-koi-stats.md`)
+- SPARQL requires auth (`regen_koi_authenticate`) — complete this BEFORE demo. If auth fails, skip SPARQL; the search results in Step 3 are more visually impressive anyway
 - The sensor pipeline explanation (Step 4) requires no live queries
 
 **Hard minimum:** Steps 1 + 3 + 4 = 2 minutes. Step 2 (SPARQL) can be cut if pressed for time.
