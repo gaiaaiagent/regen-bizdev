@@ -33,7 +33,9 @@ The Wallacea Trust methodology measures biodiversity across five taxa groups, ea
 
 Note: All credit class IDs (BT01, USS01, MBS01, C01-C09, KSH01) and credit type definitions come from live Regen Ledger queries. No fabricated IDs or external registry codes.
 
-## Registry Readiness Score: 5/10
+## Registration Pathway: Building (5/10)
+
+**Context:** 2 credit classes matched. 3 gaps identified with clear 8-week resolution pathway.
 
 **Methodology Coverage (2/5):**
 The composite biodiversity score partially maps to BT01 (BioTerra), and individual taxa have weak-to-partial matches with USS01. However, no existing credit class directly accommodates a 5-taxa conservation-weighted methodology. The carbon stacking dimension maps well to C01-C09. Score reflects that meaningful registry work is needed to formalize the mapping, but the foundational credit types exist.
@@ -41,17 +43,19 @@ The composite biodiversity score partially maps to BT01 (BioTerra), and individu
 **Data/Evidence Completeness (3/5):**
 Renew's biodiversity survey data is structured and comprehensive — species richness, indicator species, conservation weighting, and temporal tracking (baseline → current → next survey). The data quality is sufficient for credit issuance. Gaps: (1) no formal content hash or attestation records yet, (2) verification protocol for third-party validation not yet designed, (3) conservation value scoring methodology needs peer-reviewed documentation for registry submission.
 
-## Gaps & Required Actions
+**Production context:** This assessment maps against a registry with 78+ credit batches issued across 58 projects in 10+ countries, including 2 active BT01 biodiversity projects in Colombia. Biodiversity credits on Regen are operational, not theoretical.
 
-1. **BT01 scoring framework alignment** — Map Wallacea Trust's conservation-weighted taxa scoring to BT01's "weighted 10m² score" unit definition. This requires defining a conversion methodology that preserves the ecological meaning of both frameworks. *Estimated effort: 2-3 weeks of methodology work.*
+## Partnership Opportunities
 
-2. **Multi-taxa composite methodology documentation** — Wallacea Trust v2.1 needs formal documentation meeting Regen registry submission standards: scientific basis, additionality framework, MRV protocol, data quality standards. *Estimated effort: 4-6 weeks, depending on existing documentation.*
+1. **BT01 Scoring Integration Sprint** — Map Wallacea Trust's conservation-weighted taxa scoring to BT01's "weighted 10m² score" unit definition. We preserve the ecological meaning of both frameworks while meeting registry standards. *Estimated effort: 2-3 week sprint.* → **Enables first biodiversity credit batch issuance**
 
-3. **Terrestrial invertebrate coverage gap** — No existing credit class covers terrestrial invertebrate biodiversity monitoring. Options: (a) fold into BT01 as a component of the composite score, (b) propose a terrestrial biodiversity stewardship credit class extension. *Estimated effort: 2-4 weeks for proposal.*
+2. **Methodology Documentation Sprint** — Wallacea Trust v2.1 needs formal documentation meeting Regen registry submission standards: scientific basis, additionality framework, MRV protocol, data quality standards. *Estimated effort: 4-6 week sprint, depending on existing documentation.* → **Qualifies for formal registry submission**
 
-4. **Acoustic monitoring data integration** — Bat fauna data from AudioMoth acoustic monitoring needs a defined pathway into the registry evidence package. Content hashing of audio data files, species identification methodology, and activity index calculation need documentation. *Estimated effort: 1-2 weeks.*
+3. **Terrestrial Invertebrate Coverage Extension** — No existing credit class covers terrestrial invertebrate biodiversity monitoring. Options: (a) fold into BT01 as a component of the composite score, (b) propose a terrestrial biodiversity stewardship credit class extension. *Estimated effort: 2-4 week sprint for proposal.* → **Expands BT01 methodology scope for multi-taxa coverage**
 
-5. **Carbon credit bridging architecture** — Design the technical mechanism for Verra carbon credits and Regen biodiversity credits to coexist for the same project area without double-counting ecological outcomes. *Estimated effort: 2-3 weeks.*
+4. **Acoustic Monitoring Data Integration** — Bat fauna data from AudioMoth acoustic monitoring needs a defined pathway into the registry evidence package. Content hashing of audio data files, species identification methodology, and activity index calculation need documentation. *Estimated effort: 1-2 week sprint.* → **Adds acoustic monitoring as verified evidence type**
+
+5. **Carbon Stacking Architecture** — Design the technical mechanism for Verra carbon credits and Regen biodiversity credits to coexist for the same project area without double-counting ecological outcomes. *Estimated effort: 2-3 week sprint.* → **Unlocks dual-class credit revenue (carbon + biodiversity)**
 
 ## Recommended Pathway
 
@@ -66,6 +70,26 @@ Evaluate whether Red List species in Renew's surveys (Turtle Dove, Cuckoo) quali
 
 **Phase 4 (Ongoing): Carbon Stacking Implementation**
 Once BT01 pathway is established, implement Verra carbon credit bridging to enable dual-class issuance (carbon + biodiversity) for the same restoration sites.
+
+## Your First Credit: What It Looks Like
+
+**Project:** Oakwood Manor Restoration Site, Somerset (UK)
+**Credit Class:** BT01 (BioTerra)
+**Credit Type:** BT — weighted 10m² score of long-term restoration/preservation
+
+| Field | Value |
+|-------|-------|
+| Project ID | `BT01-003` (next available after BT01-001, BT01-002 Colombia) |
+| Jurisdiction | `GB-ENG` |
+| Batch denom | `BT01-003-20240101-20241231-001` |
+| Vintage | 2024 (first survey year with conservation-weighted scoring) |
+| Units | Derived from Wallacea Trust composite score → BT01 conversion (defined in Phase 1 sprint) |
+| Metadata IRI | Content hash of biodiversity survey JSON (5 taxa, conservation weights, indicator species) |
+| Attestation | Renew (data collector) + BFI (independent verifier) |
+
+**What an investor sees:** Resolve the metadata IRI → retrieve the original survey data → verify the content hash matches → confirm both Renew and BFI attested independently. No trust required in any single party.
+
+**Revenue implication:** This project could carry both BT01 biodiversity credits AND existing Verra carbon credits — dual-class issuance from the same restoration site.
 
 ## Relevant Precedents
 

@@ -38,32 +38,36 @@ The Nature Equity Asset aggregates 5 ecological and social dimensions into a com
 
 Note: All credit class IDs (C01-C09, BT01, USS01, MBS01, KSH01) and credit type definitions come from live Regen Ledger queries. No fabricated IDs or external registry codes.
 
-## Registry Readiness Score: 4/10
+## Registration Pathway: Foundation (4/10)
+
+**Context:** Carbon dimension ready for immediate registration. 4 additional dimensions require methodology development.
 
 **Methodology Coverage (2/5):**
-Only 1 of 5 dimensions (carbon) maps directly to existing credit classes. Biodiversity partially maps to BT01 but requires significant methodology work to bridge proprietary scoring to registry standards. Soil health, water regulation, and social impact have no existing credit class coverage. This is expected for a multi-dimensional Nature Equity Asset — the registry is growing into these areas, and the gaps represent opportunity for new credit class proposals. Score: **2** — Carbon maps well, biodiversity partial, three dimensions are gaps.
+Only 1 of 5 dimensions (carbon) maps directly to existing credit classes. Biodiversity partially maps to BT01 but requires significant methodology work to bridge proprietary scoring to registry standards. Soil health, water regulation, and social impact have no existing credit class coverage. This is expected for a multi-dimensional Nature Equity Asset — the registry is growing into these areas, and the gaps represent the partnership opportunity for new credit class proposals. Score: **2** — Carbon maps well, biodiversity partial, three dimensions are partnership opportunities.
 
 **Data/Evidence Completeness (2/5):**
 Carbon and soil health data have high confidence ratings and established measurement methods. Biodiversity, water, and social impact have medium confidence — sufficient for initial assessment but requiring improvement for registry submission. Verification status is "unverified" — no independent attestation exists. The Landler Natural Capital Assessment v3 methodology lacks public peer-reviewed documentation. Score: **2** — Data exists but verification and methodology documentation gaps are substantial.
 
-## Gaps & Required Actions
+**Production context:** This assessment maps against a registry with 78+ credit batches issued across 58 projects in 10+ countries, with vintage dates spanning 2012-2024. BT01 already has 2 active biodiversity projects in Colombia — the biodiversity pathway is operational. This is production infrastructure with a multi-year track record.
 
-1. **Landler Biodiversity Index documentation** — The proprietary index is the most critical gap. Registry reviewers will require: (a) peer-reviewed scientific basis, (b) transparent calculation methodology, (c) reproducibility criteria, (d) independent validation study. *Estimated effort: 6-8 weeks of scientific documentation + peer review engagement.*
+## Partnership Opportunities
 
-2. **Carbon methodology selection** — Choose which C-class methodology framework to apply. Cocoa agroforestry carbon sequestration likely fits forestry/land use change methodologies. Need to map Landler's remote sensing + field sampling approach to a specific standard. *Estimated effort: 2-3 weeks.*
+1. **Landler Biodiversity Index Validation Sprint** — The proprietary index is the #1 governance review risk. Registry reviewers will require: (a) peer-reviewed scientific basis, (b) transparent calculation methodology, (c) reproducibility criteria, (d) independent validation study. *Estimated effort: 6-8 week sprint.* → **Clears the #1 governance review risk for Nature Equity Assets**
 
-3. **BT01 scoring framework alignment** — Map Landler Biodiversity Index to BT01's "weighted 10m² score" unit definition. Requires defining a conversion methodology. eDNA + acoustic monitoring + visual surveys need standardized protocols for registry compliance. *Estimated effort: 3-4 weeks.*
+2. **Carbon Registration Sprint** — Choose which C-class methodology framework to apply and register. Cocoa agroforestry carbon sequestration maps directly to forestry/land use change methodologies. Need to map Landler's remote sensing + field sampling approach to a specific standard. *Estimated effort: 2-3 week sprint.* → **Enables first carbon credit batch issuance**
 
-4. **Soil health credit class proposal pathway** — No existing class covers SOC as a standalone credit. Options: (a) track as co-benefit metadata on C-class credits, (b) propose a new soil health credit class through Regen governance, (c) partner with existing soil carbon methodology developers. *Estimated effort: 2-3 weeks for pathway analysis.*
+3. **BT01 Scoring Framework Alignment** — Map Landler Biodiversity Index to BT01's "weighted 10m² score" unit definition. Requires defining a conversion methodology. eDNA + acoustic monitoring + visual surveys need standardized protocols for registry compliance. *Estimated effort: 3-4 week sprint.* → **Opens biodiversity credit pathway alongside carbon**
 
-5. **Confidence improvement for medium-rated dimensions** — Biodiversity, water, and social impact all have medium confidence. Registry submission standards require documented uncertainty quantification and improvement pathways. *Estimated effort: ongoing, per dimension.*
+4. **Soil Health Credit Class Proposal** — No existing class covers SOC as a standalone credit. Options: (a) track as co-benefit metadata on C-class credits, (b) propose a new soil health credit class through Regen governance, (c) partner with existing soil carbon methodology developers. *Estimated effort: 2-3 week sprint for pathway analysis.* → **Adds verified soil dimension to Nature Equity composite score**
 
-6. **Verification protocol establishment** — Asset is currently "unverified." Need to design the verification workflow: who verifies each dimension, what evidence is required, and how attestations are recorded on-chain. *Estimated effort: 3-4 weeks.*
+5. **Confidence Improvement Pathway** — Biodiversity, water, and social impact all have medium confidence. Registry submission standards require documented uncertainty quantification and improvement pathways. *Estimated effort: ongoing, per dimension.* → **Raises evidence grade from medium to high confidence across 3 dimensions**
+
+6. **Verification Protocol Design** — Asset is currently "unverified." Design the verification workflow: per-dimension specialist verifiers (carbon auditors, ecologists, soil labs, hydrological consultants, social auditors), evidence requirements, and on-chain attestation records. *Estimated effort: 3-4 week sprint.* → **Establishes institutional-grade verification for $21-56K/year**
 
 ## Recommended Pathway
 
-**Phase 1 (Weeks 1-4): Carbon First**
-Start with carbon sequestration — it maps directly to C01-C09 with minimal methodology work. Register the cocoa agroforestry project, anchor sample carbon data, issue a test credit batch. This creates immediate proof of value and a working pipeline.
+**Phase 1 (Weeks 1-4): Carbon First — Credits Live by ~Month 4**
+Start with carbon sequestration — it maps directly to C01-C09 with minimal methodology work. Carbon uses existing credit classes, so no new methodology governance review is required. Register the cocoa agroforestry project, anchor sample carbon data, issue a test credit batch. This creates the near-term investor milestone: registry-backed carbon credits before the full multi-dimensional review.
 
 **Phase 2 (Weeks 5-8): Biodiversity Bridge**
 Map the Landler Biodiversity Index to BT01 (BioTerra). This requires methodology documentation work — define the scientific basis, make the index calculation transparent, identify what peer review documentation is needed. Run a pre-review simulation to identify specific reviewer concerns.
@@ -73,6 +77,26 @@ With carbon and biodiversity credit classes established, explore credit class pr
 
 **Long-term: Registry as Credibility Infrastructure**
 As more Nature Equity Asset dimensions get registered credit classes, the composite Nature Equity Score gains registry backing dimension-by-dimension. The full multi-dimensional asset becomes verifiable through the registry rather than solely through Landler's proprietary platform.
+
+## Your First Credit: What It Looks Like
+
+**Project:** Ritter Sport Cocoa Agroforestry, Cote d'Ivoire / Ghana
+**Credit Class:** C01-C09 (Carbon — select specific agroforestry variant)
+**Credit Type:** C — metric ton CO2 equivalent
+
+| Field | Value |
+|-------|-------|
+| Project ID | `C0X-0XX` (assigned at registration under selected C-class) |
+| Jurisdiction | `CI` / `GH` (Cote d'Ivoire / Ghana) |
+| Batch denom | `C0X-0XX-20250101-20251231-001` |
+| Vintage | 2025 (first monitored year post-registration) |
+| Units | 5.8 tCO2e/ha/yr × 2,400 ha = ~13,920 tCO2e (subject to verification) |
+| Metadata IRI | Content hash of carbon monitoring data (remote sensing + field sampling) |
+| Attestation | Landbanking (data collector) + independent carbon auditor (verifier) |
+
+**What an investor sees:** Resolve the metadata IRI → retrieve the original monitoring data → verify the content hash matches → confirm both Landbanking and the auditor attested independently. Immutable, auditable, no trust required in any single party.
+
+**Timeline:** Carbon uses existing C-class credit classes — no new methodology governance review required. Target: first carbon credit batch by ~Month 4 after engagement begins. Biodiversity follows on the BT01 pathway (~Month 10-12).
 
 ## Relevant Precedents
 

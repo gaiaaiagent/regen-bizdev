@@ -7,8 +7,5 @@
 
 | ID | Time | T | Title | Read |
 |----|------|---|-------|------|
-| #3227 | 10:46 AM | ⚖️ | Custom Web Dashboard Strategy for Client Demos | ~1114 |
-| #3223 | 10:45 AM | 🟣 | Renew Act 1 golden output created - comprehensive deal dossier | ~808 |
 | #3218 | 10:40 AM | 🔵 | Custom Web Tooling Requirements for Regen BizDev Pilot Clients | ~758 |
-| #3217 | 10:39 AM | 🟣 | Renew Act 2 golden output created - Wallacea Trust credit class mapping | ~629 |
 </claude-mem-context>

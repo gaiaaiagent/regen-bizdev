@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #0a0a0a;
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #737373;
+  --color-border: #e5e5e5;
+  --color-ring: #3b7d4f;
+  --color-primary: #3b7d4f;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f5f5f5;
+  --color-secondary-foreground: #0a0a0a;
+  --color-accent: #f5f5f5;
+  --color-accent-foreground: #0a0a0a;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-card: #ffffff;
+  --color-card-foreground: #0a0a0a;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #0a0a0a;
+  --color-regen-green: #3b7d4f;
+  --color-regen-dark: #1a3a24;
+  --color-regen-light: #e8f5ec;
+  --color-status-maps: #16a34a;
+  --color-status-partial: #d97706;
+  --color-status-gap: #dc2626;
+  --color-score-red: #dc2626;
+  --color-score-amber: #d97706;
+  --color-score-green: #16a34a;
+  --color-score-gold: #ca8a04;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  margin: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Print-only elements hidden by default */
+.print-only {
+  display: none !important;
+}
+
+/* Print Styles */
+@media print {
+  @page {
+    margin: 1.5cm 1.5cm 2cm 1.5cm;
+    size: A4;
+    @bottom-center {
+      content: counter(page);
+      font-size: 9pt;
+      color: #737373;
+    }
+  }
+
+  header, nav, .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  table {
+    break-inside: avoid;
+  }
+  .card, [class*="rounded-lg border"] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  body {
+    background: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 11pt;
+  }
+  main {
+    padding: 0 !important;
+    max-width: none !important;
+  }
+
+  /* Print header banner */
+  .print-header {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #3b7d4f;
+  }
+  .print-header h1 {
+    font-size: 14pt;
+    font-weight: 700;
+    color: #1a3a24;
+  }
+  .print-header .print-date {
+    font-size: 9pt;
+    color: #737373;
+  }
+
+  /* Stat cards in row for print */
+  .stat-cards-row {
+    display: flex !important;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .stat-cards-row > * {
+    flex: 1;
+    min-width: 0;
+  }
+}
