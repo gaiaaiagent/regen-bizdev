@@ -190,6 +190,13 @@ Discovery Sprint (2 wks) → Registry Sprint (8 wks) → Carbon Credits Live (~M
 4. **Multi-dimensional expansion** (Month 9+): Propose new credit classes for soil health and water regulation; build the registry framework that doesn't exist yet
 5. **Investor credibility milestone** (Month 10-12): Full Nature Equity Asset with carbon + biodiversity registry backing, suitable for institutional investor due diligence
 
+## Commercial Terms
+
+**Revenue split:** 50/50 between Symbiocene Labs and Regen Network (default). Custom arrangements may be negotiated depending on engagement scope and client relationship.
+
+- Symbiocene Labs: KOI knowledge infrastructure, AI-assisted analysis, demo engineering, integration support
+- Regen Network: Registry infrastructure, governance expertise, verification framework, credit issuance
+
 ## Start Here
 
 **2-week discovery sprint — $15-20K.** Full credit class mapping per dimension, governance pre-review, go/no-go recommendation. Low risk, high information.

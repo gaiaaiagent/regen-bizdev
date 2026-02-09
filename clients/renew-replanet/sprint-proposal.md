@@ -173,6 +173,13 @@ Discovery Sprint (2 weeks) → Registry Sprint (8 weeks) → Governance Review (
 3. **Carbon stacking** (Month 9-11): Implement Verra carbon credit bridging for dual-class issuance
 4. **Scale** (Ongoing): Additional restoration sites, automated data pipeline, marketplace integration
 
+## Commercial Terms
+
+**Revenue split:** 50/50 between Symbiocene Labs and Regen Network (default). Custom arrangements may be negotiated depending on engagement scope and client relationship.
+
+- Symbiocene Labs: KOI knowledge infrastructure, AI-assisted analysis, demo engineering, integration support
+- Regen Network: Registry infrastructure, governance expertise, verification framework, credit issuance
+
 ## Start Here
 
 **2-week discovery sprint — $15-20K.** Full credit class mapping, pre-review simulation, go/no-go recommendation. Low risk, high information.
