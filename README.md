@@ -39,6 +39,7 @@ npm run build && rsync -avz dist/ darren@202.61.196.119:/opt/projects/regen-bizd
 | Renew Dashboard | [/bizdev/renew](https://regen.gaiaai.xyz/bizdev/renew) | Renew/RePlanet credit class mapping + demo walkthrough |
 | Landbanking Dashboard | [/bizdev/landbanking](https://regen.gaiaai.xyz/bizdev/landbanking) | Landbanking Group credit class mapping + demo walkthrough |
 | Knowledge Explorer | [/bizdev/explore](https://regen.gaiaai.xyz/bizdev/explore) | Search KOI, resolve entities, explore knowledge graph |
+| Graph Explorer | [/bizdev/graph](https://regen.gaiaai.xyz/bizdev/graph) | D3 force-directed interactive knowledge graph |
 
 **Automated demos:** Click "Watch Renew Demo" or "Watch Landbanking Demo" on the landing page for a guided walkthrough with presenter notes. Controls: Space (pause), arrows (navigate), Esc (exit).
 
@@ -63,6 +64,7 @@ npm run build && rsync -avz dist/ darren@202.61.196.119:/opt/projects/regen-bizd
 | Renew Dashboard | `/bizdev/renew` | Client-specific analysis |
 | Landbanking Dashboard | `/bizdev/landbanking` | Client-specific analysis |
 | Knowledge Explorer | `/bizdev/explore` | Interactive entity graph |
+| Graph Explorer | `/bizdev/graph` | D3 force-directed knowledge graph |
 
 ### If Something Goes Wrong
 - **KOI slow (>5s):** Explorer shows "Knowledge graph is loading" message, then fallback after 15s
@@ -77,10 +79,11 @@ regen-bizdev/
 │
 ├── web/                           # React SPA (Vite + Tailwind + Radix UI)
 │   ├── src/
-│   │   ├── pages/                 # Landing, Explorer, Renew dashboard, Landbanking dashboard
-│   │   ├── components/            # 30 components (see Component Index below)
+│   │   ├── pages/                 # Landing, Explorer, GraphExplorer, Renew, Landbanking
+│   │   ├── components/            # 35+ components (see Component Index below)
 │   │   ├── data/                  # Client data, demo step definitions, shared types
-│   │   └── lib/                   # API clients for KOI + Ledger
+│   │   ├── hooks/                 # useGraphData (accumulated graph state)
+│   │   └── lib/                   # API clients for KOI + Ledger, graph types
 │   ├── package.json
 │   └── vite.config.ts
 │
@@ -100,7 +103,8 @@ regen-bizdev/
 │   ├── renew-demo.md              # 5-act Renew demo script
 │   ├── landbanking-demo.md        # 5-act Landbanking demo script
 │   ├── knowledge-graph-demo.md    # Supplementary KOI showcase
-│   └── web-app-demo.md            # Web dashboard walkthrough guide
+│   ├── web-app-demo.md            # Web dashboard walkthrough guide
+│   └── pre-demo-checklist.md      # Pre-demo verification + fallback strategies
 │
 ├── foundation/                    # Shared agent infrastructure
 │   ├── system-prompt.md           # Base system prompt for Claude agent
@@ -112,7 +116,7 @@ regen-bizdev/
 │       ├── integration-blueprint.md
 │       └── verification-plan.md
 │
-├── BUILD_PLAN.md                  # Original build plan
+├── BUILD_PLAN.md                  # Build plan (all phases complete)
 └── CLAUDE.md                      # Agent instructions + project context
 ```
 
@@ -163,7 +167,13 @@ regen-bizdev/
 | `JourneyTimeline` | Horizontal stepper: Discovery → Registry → Governance → First Credit |
 | `DemoRunner` | Automated walkthrough engine with presenter notes + keyboard controls |
 | `Explorer` | Interactive knowledge graph search with entity resolution |
+| `GraphExplorer` | D3 force-directed graph with multi-hop node expansion |
+| `ForceGraph` | D3 force simulation with typed nodes and drag interaction |
 | `InfrastructurePulse` | Landing page live stats (KOI doc count, Ledger class count) |
+| `PreparedAnalysisBanner` | Honest disclosure banner (dismissible) |
+| `LiveQueryPanel` | Interactive KOI search for ad-hoc queries |
+| `FirstCreditCard` | Concrete "Your First Credit" with project details |
+| `MethodologyComparison` | Side-by-side registry requirements vs client methodology |
 | `SprintProposal` | Inline sprint proposal with pricing and timeline |
 
 ## Pilot Clients

@@ -9,7 +9,7 @@ You represent Regen Network's technical infrastructure capabilities to prospecti
 ## Available Tools
 
 ### KOI MCP (Domain Knowledge)
-- `search()` — Hybrid search across 48,000+ documents: Regen governance discussions, methodology proposals, technical documentation, community forum posts, podcast transcripts
+- `search()` — Hybrid search across 69,000+ documents: Regen governance discussions, methodology proposals, technical documentation, community forum posts, podcast transcripts
 - `search_github_docs()` — Search Regen GitHub repositories (regen-ledger, regen-web, regen-data-standards, regen-registry-handbook)
 - `resolve_metadata_iri()` — Resolve on-chain metadata IRIs with content hash verification
 - `resolve_entity()`, `get_entity_neighborhood()` — Knowledge graph entity resolution

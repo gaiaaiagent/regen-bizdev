@@ -48,7 +48,7 @@ Their key gaps (from prospect analysis): They lack verification/MRV partners and
 - Can a ChatGPT Enterprise / Claude Team workspace with uploaded documents replicate the "Deal Room Agent" demo?
 - What about Perplexity Pro, Google NotebookLM, or Microsoft Copilot with organizational knowledge?
 - Are any competitors building domain-specific AI agents for natural capital markets?
-- Does Regen's KOI knowledge base (48K+ docs) create durable advantage, or will general models catch up?
+- Does Regen's KOI knowledge base (69K+ docs) create durable advantage, or will general models catch up?
 - What is the actual moat in "pre-loaded client context + domain MCP tools" vs. generic RAG?
 
 ### 6. EU Regulatory Drivers

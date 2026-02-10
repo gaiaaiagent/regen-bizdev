@@ -47,7 +47,7 @@ Regen has proposed serving as their backend registry and blockchain infrastructu
 
 ### 5. Regen's Genuine Technical Moat
 - What does Regen Ledger offer that cannot be replicated on a generic L1/L2? (credit class system, on-chain governance, ecocredit module specifics)
-- Is the KOI knowledge base (48K+ documents on regenerative finance) a defensible asset?
+- Is the KOI knowledge base (69K+ documents on regenerative finance) a defensible asset?
 - How important is the existing Regen credit marketplace and liquidity?
 - Does Regen's governance model (community-driven methodology approval) create switching costs?
 

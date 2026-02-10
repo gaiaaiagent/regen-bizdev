@@ -49,7 +49,7 @@ Two major calls have happened:
 |----------------|----------|-------|
 | Registry infrastructure (credit classes, governance, methodology review) | **Strong** | Hard to replicate, takes years to build. This is the real product. |
 | On-chain data access (Ledger MCP) | **Medium** | Unique data, non-trivial to replicate without equivalent chain modules. |
-| KOI knowledge graph (48K+ docs, entity resolution, structured queries) | **Medium** | The moat is the graph structure and provenance-linked queries, not raw corpus size. Frontier models will know the domain — they won't have the structured retrieval. |
+| KOI knowledge graph (69K+ docs, entity resolution, structured queries) | **Medium** | The moat is the graph structure and provenance-linked queries, not raw corpus size. Frontier models will know the domain — they won't have the structured retrieval. |
 | Client context pre-loading | **Weak** | Already commoditized. NotebookLM, ChatGPT Enterprise, Claude Team all do this. |
 | Domain AI agent (chat interface) | **Weak** | The chat layer is a commodity wrapper. Only defensible when it drives registry/verification workflows. |
 
@@ -112,13 +112,13 @@ A one-page architecture diagram and phased implementation plan showing how Renew
 
 ### What Makes This Better Than ChatGPT (Honest Version)
 
-The old differentiation list was: KOI has 48K docs, we have on-chain data, we pre-loaded their context, etc. That's weak — most of those can be approximated.
+The old differentiation list was: KOI has 69K docs, we have on-chain data, we pre-loaded their context, etc. That's weak — most of those can be approximated.
 
 **The real differentiation:**
 1. **Registry workflow outputs** — No generic AI tool can map a biodiversity methodology to Regen's credit class schema, identify registry eligibility gaps, and generate a verification plan. This requires structured knowledge of Regen's specific infrastructure.
 2. **On-chain artifact generation** — Producing a data anchor, attestation object, and provenance trail requires actual integration with Regen Ledger. You can't fake this with RAG.
 3. **Governance checkpoints** — The agent can show what would block or advance a methodology through Regen's review process. This reflects real institutional process, not summarization.
-4. **Graph-structured domain queries** — KOI's value isn't "more documents" — it's provenance-linked retrieval across 48K+ documents with entity resolution. "Show me all biodiversity methodologies that use taxa-weighted scoring and have been discussed in Regen governance" is a query that requires graph structure, not vector search on a corpus.
+4. **Graph-structured domain queries** — KOI's value isn't "more documents" — it's provenance-linked retrieval across 69K+ documents with entity resolution. "Show me all biodiversity methodologies that use taxa-weighted scoring and have been discussed in Regen governance" is a query that requires graph structure, not vector search on a corpus.
 
 ---
 

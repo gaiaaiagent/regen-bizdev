@@ -75,7 +75,7 @@ Two alignment memos have been prepared:
 |----------------|----------|-------|
 | Registry infrastructure (credit classes, governance, methodology review) | **Medium-Strong** | Hard to replicate quickly, but threatened by existing registries (Verra, Gold Standard, Plan Vivo). Defensibility depends on adoption depth and switching costs. |
 | On-chain data access (Ledger MCP) | **Medium** | Unique data, but only valuable if it drives decisions (pricing, eligibility, governance). |
-| KOI knowledge graph (48K+ docs, entity resolution, structured queries) | **Medium** | Graph structure and provenance-linked queries are the moat, not corpus size. But Landbanking has their own domain knowledge and data. |
+| KOI knowledge graph (69K+ docs, entity resolution, structured queries) | **Medium** | Graph structure and provenance-linked queries are the moat, not corpus size. But Landbanking has their own domain knowledge and data. |
 | Client context pre-loading | **Weak** | Already commoditized. |
 | Tokenization capability | **Medium** | Tokenization itself is widespread. Value depends on governance, auditability, and compliance — not minting. |
 | Domain AI agent (chat interface) | **Weak** | Landbanking already has "Va" — an AI agent demo alone will not differentiate. |

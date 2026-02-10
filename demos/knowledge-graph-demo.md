@@ -34,7 +34,7 @@ _Reusable Act — insert into any client demo to showcase KOI infrastructure_
 
 **SHOW:**
 - Search results appearing on the left (document cards with source badges)
-- Entity graph materializing on the right (SVG radial layout with typed nodes)
+- Entity graph materializing on the right (D3 force-directed graph with typed nodes)
 
 **SAY:** "Watch — the system is searching 69,000 documents. Results come from multiple sources — forum discussions, GitHub documentation, governance proposals, the registry handbook. The hybrid RAG combines keyword search with semantic embedding search."
 

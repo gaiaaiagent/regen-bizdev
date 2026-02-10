@@ -16,7 +16,7 @@ A client with Claude Desktop can chat about their documents. A client with our i
 
 | Layer | What We Have | Generic AI Equivalent | Moat |
 |-------|-------------|----------------------|------|
-| **Domain Knowledge** | 48K+ docs: credit methodologies, governance standards, forum discussions, technical specs | None — not in any public connector | **Strong** |
+| **Domain Knowledge** | 69,000+ docs: credit methodologies, governance standards, forum discussions, technical specs | None — not in any public connector | **Strong** |
 | **On-Chain Registry** | 13 credit classes, 58 projects, real attestation infrastructure, marketplace data | No MCP connector exists for Regen Ledger | **Strong** |
 | **Governance Workflows** | 24-tool registry review system, 8-stage methodology approval simulation | No equivalent anywhere | **Unique** |
 | **Knowledge Graph Pipeline** | Sensors → Event Bridge → Processor → pgvector + Fuseki → Hybrid RAG | Notion/Drive connectors give flat doc access, not semantic graph | **Strong** |
@@ -30,7 +30,7 @@ A client with Claude Desktop can chat about their documents. A client with our i
 | Component | Status | Deployment Readiness |
 |-----------|--------|---------------------|
 | KOI Processor (hybrid RAG) | Production | Ready — running on 202.61.196.119 |
-| PostgreSQL + pgvector | Production | Ready — 48K+ documents indexed |
+| PostgreSQL + pgvector | Production | Ready — 69,000+ documents indexed |
 | Apache Jena Fuseki (SPARQL) | Production | Ready — entity graph queryable |
 | KOI Sensors (8 data sources) | Production | Ready — Notion, GitHub, Discourse, Drive, etc. |
 | Regen Ledger MCP | Production | Ready — 13 classes, 58 projects queryable |
@@ -51,7 +51,7 @@ A client with Claude Desktop can chat about their documents. A client with our i
 
 **Includes:**
 - Agent + 5 reusable workflows + golden outputs
-- Live queries against Regen knowledge graph (48K+ docs) and on-chain registry (13 classes, 58 projects)
+- Live queries against Regen knowledge graph (69,000+ docs) and on-chain registry (13 classes, 58 projects)
 - 8-week sprint proposal with scoped deliverables
 
 **Differentiator:** No other AI tool can produce these outputs. They require live infrastructure queries against Regen's registry, knowledge graph, and governance standards.
@@ -125,7 +125,7 @@ GitHub         ─┤              ┌──────────────
 Discourse      ─┤──► Sensors ──►│   KOI Processor     │
 Google Drive   ─┤              │  ┌───────────────┐  │              ┌──────────┐
 Custom APIs    ─┘              │  │ pgvector       │  │──► MCP ────►│ AI Agent │
-                               │  │ (48K+ docs)    │  │   Server    │ (Claude/ │
+                               │  │ (69,000+ docs)    │  │   Server    │ (Claude/ │
                                │  ├───────────────┤  │              │  ElizaOS)│
 Regen Ledger ─────────────────►│  │ Fuseki         │  │              └──────────┘
 (13 classes,                   │  │ (entity graph) │  │
