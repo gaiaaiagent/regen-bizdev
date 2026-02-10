@@ -2,9 +2,13 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { useSearchParams } from 'react-router';
 import { SearchBar } from '../components/SearchBar';
 import { SearchResults } from '../components/SearchResults';
-import { EntityGraph } from '../components/EntityGraph';
-import { queryKoi, resolveEntity, getNeighborhood } from '../lib/koi';
-import type { KoiResult, ResolvedEntity, EntityNeighbor } from '../lib/koi';
+import { ForceGraph } from '../components/ForceGraph';
+import { GraphControls } from '../components/GraphControls';
+import { GraphTooltip } from '../components/GraphTooltip';
+import { useGraphData } from '../hooks/useGraphData';
+import { queryKoi } from '../lib/koi';
+import type { KoiResult } from '../lib/koi';
+import type { GraphNode } from '../lib/graph-types';
 import { Database } from 'lucide-react';
 
 const CLIENT_SUGGESTIONS: Record<string, string[]> = {
@@ -38,12 +42,14 @@ export function Explorer() {
   const [results, setResults] = useState<KoiResult[]>([]);
   const [confidence, setConfidence] = useState<number | undefined>();
   const [searchLoading, setSearchLoading] = useState(false);
+  const [fullscreen, setFullscreen] = useState(false);
 
-  const [center, setCenter] = useState<ResolvedEntity | null>(null);
-  const [neighbors, setNeighbors] = useState<EntityNeighbor[]>([]);
-  const [graphLoading, setGraphLoading] = useState(false);
-
+  const graph = useGraphData();
   const hasFired = useRef(false);
+
+  // Tooltip state
+  const [hoveredNode, setHoveredNode] = useState<GraphNode | null>(null);
+  const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
 
   // Auto-fire first suggestion 1s after mount
   useEffect(() => {
@@ -60,8 +66,7 @@ export function Explorer() {
     setQuery(q);
     setSearchLoading(true);
     setResults([]);
-    setCenter(null);
-    setNeighbors([]);
+    graph.reset();
 
     try {
       // Step 1: KOI search
@@ -70,43 +75,39 @@ export function Explorer() {
       setConfidence(searchResp.confidence);
       setSearchLoading(false);
 
-      // Step 2: Extract top entity from first result title, then resolve + get neighborhood
-      const topTitle = searchResp.results[0]?.title;
-      if (topTitle) {
-        setGraphLoading(true);
-        // Extract a meaningful entity label from the title
-        const entityLabel = extractEntityLabel(topTitle, q);
+      if (searchResp.results.length === 0) return;
 
+      // Step 2: Build candidate entity labels to try (in priority order)
+      const candidates = extractEntityCandidates(searchResp.results, q);
+
+      // Step 3: Try each candidate — first one that resolves with neighbors wins
+      for (const label of candidates) {
         try {
-          const resolved = await resolveEntity(entityLabel);
-          const bestMatch = resolved.best_match || resolved.matches?.[0];
-
-          if (bestMatch) {
-            setCenter(bestMatch);
-            const hood = await getNeighborhood(bestMatch.label || entityLabel);
-            setNeighbors(hood.neighbors || []);
-          } else {
-            // Fallback: use the query term itself as center
-            setCenter({ label: entityLabel, type: 'Concept' });
-          }
+          await graph.expandNode(label);
+          // If we got nodes, stop trying candidates
+          break;
         } catch {
-          // Entity resolution failed — show query as center node
-          setCenter({ label: entityLabel, type: 'Concept' });
+          // This candidate didn't work, try next
         }
-        setGraphLoading(false);
       }
     } catch {
       setSearchLoading(false);
-      setGraphLoading(false);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleNodeClick = useCallback(
-    (label: string) => {
-      handleSearch(label);
-    },
-    [handleSearch],
-  );
+  const handleNodeClick = useCallback((label: string) => {
+    // Progressive expansion — don't reset, just expand
+    graph.expandNode(label);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleNodeHover = useCallback((node: GraphNode | null, x: number, y: number) => {
+    setHoveredNode(node);
+    setTooltipPos({ x, y });
+  }, []);
+
+  const graphVisible = graph.stats.totalNodes > 0 || graph.loading;
 
   return (
     <div className="space-y-6">
@@ -132,53 +133,101 @@ export function Explorer() {
       />
 
       {/* Results + Graph layout */}
-      {(results.length > 0 || searchLoading || graphLoading || center) && (
-        <div className="grid gap-6 lg:grid-cols-5">
-          {/* Search results — left 60% */}
-          <div className="lg:col-span-3">
-            {searchLoading ? (
-              <div className="flex items-center gap-2 rounded-lg border border-border bg-white p-6 text-sm text-muted-foreground">
-                <div className="h-4 w-4 animate-spin rounded-full border-2 border-primary border-t-transparent" />
-                Searching knowledge graph...
-              </div>
-            ) : (
-              <SearchResults results={results} confidence={confidence} query={query} />
-            )}
-          </div>
+      {(results.length > 0 || searchLoading || graphVisible) && (
+        <div className={fullscreen ? '' : 'grid gap-6 lg:grid-cols-5'}>
+          {/* Search results — left 60% (hidden in fullscreen) */}
+          {!fullscreen && (
+            <div className="lg:col-span-3">
+              {searchLoading ? (
+                <div className="flex items-center gap-2 rounded-lg border border-border bg-white p-6 text-sm text-muted-foreground">
+                  <div className="h-4 w-4 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+                  Searching knowledge graph...
+                </div>
+              ) : (
+                <SearchResults results={results} confidence={confidence} query={query} />
+              )}
+            </div>
+          )}
 
-          {/* Entity graph — right 40% */}
-          <div className="lg:col-span-2">
-            <EntityGraph
-              center={center}
-              neighbors={neighbors}
-              onNodeClick={handleNodeClick}
-              loading={graphLoading}
-            />
+          {/* Force-directed graph */}
+          <div className={fullscreen ? '' : 'lg:col-span-2'}>
+            <div className="space-y-2">
+              {graphVisible && (
+                <GraphControls
+                  availableTypes={graph.availableTypes}
+                  activeTypes={graph.filters.entityTypes}
+                  onToggleType={graph.toggleType}
+                  minImportance={graph.filters.minImportance}
+                  onMinImportanceChange={graph.setMinImportance}
+                  stats={graph.stats}
+                  onReset={() => { graph.reset(); }}
+                  fullscreen={fullscreen}
+                  onToggleFullscreen={() => setFullscreen(f => !f)}
+                />
+              )}
+              <ForceGraph
+                data={graph.graphData}
+                loading={graph.loading}
+                onNodeClick={handleNodeClick}
+                onNodeHover={handleNodeHover}
+                height={fullscreen ? 700 : 500}
+              />
+            </div>
           </div>
+        </div>
+      )}
+
+      {/* Tooltip */}
+      <GraphTooltip node={hoveredNode} x={tooltipPos.x} y={tooltipPos.y} />
+
+      {/* Error display */}
+      {graph.error && (
+        <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-2 text-sm text-red-700">
+          {graph.error}
         </div>
       )}
     </div>
   );
 }
 
-/** Extract a meaningful entity label for resolution from a result title */
-function extractEntityLabel(title: string, query: string): string {
-  // Check BOTH query and title for credit class IDs (e.g., BT01, C01, USS01)
+/** Build a prioritized list of entity labels to try resolving, from search results + query */
+function extractEntityCandidates(results: KoiResult[], query: string): string[] {
+  const seen = new Set<string>();
+  const candidates: string[] = [];
+
+  const add = (label: string) => {
+    const key = label.toLowerCase().trim();
+    if (key && !seen.has(key)) {
+      seen.add(key);
+      candidates.push(label.trim());
+    }
+  };
+
+  // Priority 1: Credit class IDs from query (e.g., BT01, C01, USS01)
   const queryClassMatch = query.match(/\b([A-Z]{1,4}\d{2})\b/);
-  if (queryClassMatch) return queryClassMatch[1];
+  if (queryClassMatch) add(queryClassMatch[1]);
 
-  const titleClassMatch = title.match(/\b([A-Z]{1,4}\d{2})\b/);
-  if (titleClassMatch) return titleClassMatch[1];
+  // Priority 2: entities_matched from search result metadata (these are real KG entities)
+  for (const r of results.slice(0, 3)) {
+    const matched = (r.metadata as Record<string, unknown>)?.entities_matched;
+    if (Array.isArray(matched)) {
+      for (const e of matched) {
+        if (typeof e === 'string' && e.length > 2) add(e);
+      }
+    }
+  }
 
-  // Use the first 2-3 meaningful words from the title (skip common words)
-  const stopWords = new Set(['the', 'a', 'an', 'of', 'in', 'for', 'and', 'to', 'with', 'on', 'at', 'by', 'from', 'document']);
-  const words = title
-    .replace(/[^a-zA-Z0-9\s-]/g, '')
-    .split(/\s+/)
-    .filter(w => w.length > 2 && !stopWords.has(w.toLowerCase()));
+  // Priority 3: Credit class IDs from result titles
+  for (const r of results.slice(0, 3)) {
+    const match = r.title?.match(/\b([A-Z]{1,4}\d{2})\b/);
+    if (match) add(match[1]);
+  }
 
-  if (words.length >= 2) return words.slice(0, 3).join(' ');
+  // Priority 4: Progressively shorter subsets of the query (2 words, then 3, then full)
+  const qWords = query.split(/\s+/);
+  if (qWords.length >= 2) add(qWords.slice(0, 2).join(' '));
+  if (qWords.length >= 3) add(qWords.slice(0, 3).join(' '));
+  add(query);
 
-  // Fallback: use first few words of search query
-  return query.split(/\s+/).slice(0, 3).join(' ');
+  return candidates;
 }

@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from 'react-router';
-import { Leaf, Home, Database } from 'lucide-react';
+import { Leaf, Home, Database, GitBranch } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { DemoRunner } from './DemoRunner';
 
@@ -38,6 +38,16 @@ export function Layout() {
             >
               <Database className="h-3.5 w-3.5" />
               Explore
+            </Link>
+            <Link
+              to="/graph"
+              className={cn(
+                'flex items-center gap-1.5 text-sm hover:text-white',
+                location.pathname.startsWith('/graph') ? 'text-white font-medium' : 'text-white/70',
+              )}
+            >
+              <GitBranch className="h-3.5 w-3.5" />
+              Graph
             </Link>
             {!isLanding && (
               <>

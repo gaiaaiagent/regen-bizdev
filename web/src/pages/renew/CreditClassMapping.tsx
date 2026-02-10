@@ -1,4 +1,4 @@
-import { act2 } from '../../data/renew';
+import { act2, bt01Comparison } from '../../data/renew';
 import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/card';
 import { ReadinessScore } from '../../components/ReadinessScore';
 import { MappingTable } from '../../components/MappingTable';
@@ -9,6 +9,8 @@ import { EvidenceDrawer } from '../../components/EvidenceDrawer';
 import { VerraComparison } from '../../components/VerraComparison';
 import { KoiLivePanel } from '../../components/KoiLivePanel';
 import { LedgerLivePanel } from '../../components/LedgerLivePanel';
+import { LiveQueryPanel } from '../../components/LiveQueryPanel';
+import { MethodologyComparison } from '../../components/MethodologyComparison';
 
 export function CreditClassMapping() {
   return (
@@ -87,8 +89,13 @@ export function CreditClassMapping() {
         <CardContent>
           <MappingTable mappings={act2.mappings} />
           <EvidenceDrawer
-            query="biodiversity credit class BT01 methodology Regen Wallacea Trust"
+            query="BT01 BioTerra credit class biodiversity scoring weighted methodology"
             label="View Source Evidence"
+          />
+          <MethodologyComparison
+            creditClass="BT01"
+            clientMethodology="Wallacea Trust v2.1"
+            rows={bt01Comparison}
           />
         </CardContent>
       </Card>
@@ -144,6 +151,7 @@ export function CreditClassMapping() {
           searchQuery="biodiversity credit methodology BT01 Wallacea Trust"
         />
         <LedgerLivePanel highlightClasses={['C01', 'C02', 'C03', 'C04', 'C05', 'C06', 'C07', 'C08', 'C09', 'BT']} />
+        <LiveQueryPanel suggestion="conservation-weighted biodiversity scoring" />
       </div>
     </div>
   );

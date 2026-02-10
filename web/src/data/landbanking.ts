@@ -1,6 +1,27 @@
 import type {
   Act1Data, Act2Data, Act3DataLandbanking, Act4DataLandbanking,
 } from './types';
+import type { ComparisonRow } from '../components/MethodologyComparison';
+
+export const bt01Comparison: ComparisonRow[] = [
+  { requirement: 'Biodiversity unit definition', registryExpects: 'Weighted 10m² score of long-term restoration/preservation', clientProvides: 'Landler Biodiversity Index (proprietary composite)', status: 'partial' },
+  { requirement: 'Spatial reference', registryExpects: 'Area-based (10m² resolution)', clientProvides: '2,400 ha aggregate — not gridded to 10m²', status: 'partial' },
+  { requirement: 'Baseline establishment', registryExpects: 'Pre-intervention baseline with documented protocol', clientProvides: 'Baseline: 0.32 index value (establishment protocol not published)', status: 'partial' },
+  { requirement: 'Monitoring methodology', registryExpects: 'Reproducible field protocol with QA/QC', clientProvides: 'eDNA + acoustic + visual surveys (medium confidence)', status: 'partial' },
+  { requirement: 'Additionality framework', registryExpects: 'Documented counterfactual scenario', clientProvides: 'Not yet formalized — cocoa monoculture baseline assumed', status: 'gap' },
+  { requirement: 'Data anchoring', registryExpects: 'Content-hashed data on Regen Ledger', clientProvides: 'Landler platform data — needs hash + anchor workflow', status: 'gap' },
+  { requirement: 'Third-party verification', registryExpects: 'Independent verifier attestation', clientProvides: 'Verification infrastructure listed as "notable gap"', status: 'gap' },
+  { requirement: 'Index transparency', registryExpects: 'Peer-reviewed, reproducible calculation', clientProvides: 'Proprietary — reviewers will flag opacity', status: 'gap' },
+];
+
+export const carbonComparison: ComparisonRow[] = [
+  { requirement: 'Carbon unit definition', registryExpects: 'Metric ton CO2 equivalent (tCO2e)', clientProvides: 'tCO2e/ha/yr from remote sensing + field sampling', status: 'aligned' },
+  { requirement: 'Measurement method', registryExpects: 'Established carbon accounting methodology', clientProvides: 'Remote sensing + field sampling (high confidence)', status: 'aligned' },
+  { requirement: 'Baseline establishment', registryExpects: 'Pre-intervention carbon stock', clientProvides: 'Baseline: 2.1 tCO2e/ha/yr', status: 'aligned' },
+  { requirement: 'Additionality', registryExpects: 'Documented counterfactual', clientProvides: 'Agroforestry vs monoculture — needs formal documentation', status: 'partial' },
+  { requirement: 'Verification', registryExpects: 'Accredited carbon auditor', clientProvides: 'Not yet engaged — standard pathway available', status: 'partial' },
+  { requirement: 'Data anchoring', registryExpects: 'Content-hashed on Regen Ledger', clientProvides: 'Landler data needs integration', status: 'gap' },
+];
 
 export const act1: Act1Data = {
   title: 'Deal Dossier: Landbanking Group',

@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { StatusBadge } from './StatusBadge';
 import { OnChainBadge } from './OnChainBadge';
+import { getCachedBatches, getCachedProjects } from '../lib/koi';
+import type { CreditBatch, LedgerProject } from '../lib/koi';
 import type { CreditClassMapping } from '../data/types';
 
 interface MappingTableProps {
@@ -33,6 +35,40 @@ export function MappingTable({ mappings }: MappingTableProps) {
 
 function MappingRow({ mapping }: { mapping: CreditClassMapping }) {
   const [expanded, setExpanded] = useState(false);
+  const [batches, setBatches] = useState<CreditBatch[]>([]);
+  const [projects, setProjects] = useState<LedgerProject[]>([]);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!expanded || loaded || !mapping.creditClass) return;
+    Promise.all([getCachedBatches(), getCachedProjects()])
+      .then(([b, p]) => {
+        // Match batches whose class_id starts with the credit class prefix
+        const classPrefix = mapping.creditClass!;
+        const matchedBatches = b.filter(batch => {
+          // For C01-C09, match any C-class; for specific classes like BT01, match exactly
+          if (classPrefix.includes('-')) {
+            // Range like C01-C09
+            const [start] = classPrefix.split('-');
+            const prefix = start.replace(/\d+$/, '');
+            return batch.denom?.startsWith(prefix);
+          }
+          return batch.denom?.startsWith(classPrefix);
+        });
+        const matchedProjects = p.filter(proj => {
+          if (classPrefix.includes('-')) {
+            const [start] = classPrefix.split('-');
+            const prefix = start.replace(/\d+$/, '');
+            return proj.class_id?.startsWith(prefix);
+          }
+          return proj.class_id?.startsWith(classPrefix);
+        });
+        setBatches(matchedBatches.slice(0, 5));
+        setProjects(matchedProjects.slice(0, 5));
+        setLoaded(true);
+      })
+      .catch(() => setLoaded(true));
+  }, [expanded, loaded, mapping.creditClass]);
 
   return (
     <>
@@ -65,7 +101,7 @@ function MappingRow({ mapping }: { mapping: CreditClassMapping }) {
       {expanded && (
         <tr className="border-b bg-muted/20">
           <td colSpan={5} className="px-4 py-3">
-            <div className="space-y-2">
+            <div className="space-y-3">
               <div>
                 <span className="text-xs font-semibold uppercase text-muted-foreground">Match Description</span>
                 <p className="mt-0.5 text-sm">{mapping.matchDescription}</p>
@@ -74,6 +110,37 @@ function MappingRow({ mapping }: { mapping: CreditClassMapping }) {
                 <span className="text-xs font-semibold uppercase text-muted-foreground">Gap / Action Required</span>
                 <p className="mt-0.5 text-sm">{mapping.gapDescription}</p>
               </div>
+              {mapping.creditClass && batches.length > 0 && (
+                <div>
+                  <span className="text-xs font-semibold uppercase text-muted-foreground flex items-center gap-1.5">
+                    Live Ledger Evidence
+                    <span className="inline-flex items-center gap-0.5 rounded-full bg-green-50 px-1.5 py-0.5 text-[9px] font-medium text-green-700 normal-case">
+                      <span className="h-1 w-1 rounded-full bg-green-500" />
+                      LIVE
+                    </span>
+                  </span>
+                  <div className="mt-1.5 space-y-1.5">
+                    {batches.map((b, i) => (
+                      <div key={i} className="flex items-center gap-3 rounded border border-border/60 bg-background px-3 py-2 text-xs">
+                        <span className="font-mono font-semibold text-primary">{b.denom}</span>
+                        {projects.find(p => p.id === b.project_id)?.jurisdiction && (
+                          <span className="text-muted-foreground">
+                            {projects.find(p => p.id === b.project_id)?.jurisdiction}
+                          </span>
+                        )}
+                        {b.issuance_date && (
+                          <span className="text-muted-foreground">
+                            Issued {new Date(b.issuance_date).toLocaleDateString()}
+                          </span>
+                        )}
+                        <span className={`rounded-full px-1.5 py-0.5 text-[9px] font-medium ${b.open ? 'bg-green-50 text-green-700' : 'bg-gray-100 text-gray-600'}`}>
+                          {b.open ? 'Open' : 'Closed'}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </td>
         </tr>

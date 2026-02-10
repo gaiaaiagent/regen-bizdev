@@ -8,41 +8,50 @@ A configured Claude agent + web dashboard for pitching Regen Network's registry 
 
 **Parent project:** `/Users/darrenzal/projects/RegenAI/`
 
-## Current Status (Feb 8, 2026)
+## Current Status (Feb 9, 2026)
 
-**DEMO-READY.** Web app built, deployed, and audited. All materials aligned.
+**DEMO-HARDENED.** Web app built, deployed, audited, and fortified against 5 structural issues from adversarial review. All materials aligned.
 
 ### What's Done
 - Web dashboard with live KOI + Ledger integration (React/Vite/Tailwind)
 - Automated demo walkthroughs (DemoRunner with presenter notes, keyboard controls)
-- 6-phase "Outcome-First Reframing" implemented across all materials:
-  - "Registration Pathway" (not "Registry Readiness Score"), no red colors
-  - "Partnership Opportunities" (not "Gaps & Required Actions"), each with commercial outcome
-  - Registry Track Record component (live batch/project/credit-type counts from Ledger)
-  - Balanced Verra comparison ("Complementary, Not Competing" / "Why On-Chain Verification Matters")
-  - Discovery Sprint entry point ($15-20K, 2 weeks) before the full registry sprint ($40-60K, 8 weeks)
-  - Journey Timeline showing full path to first credit issuance
-  - "Your First Credit" concrete examples in golden outputs
+- 6-phase "Outcome-First Reframing" implemented across all materials
 - Sprint proposals for both clients (discovery sprint + registry sprint + full journey)
 - 8 golden outputs (4 per client) — deal dossier, credit class mapping, governance/data-anchoring, verification/integration
-- Demo scripts with timing guides, fallback strategies, and presenter notes
 - All claims fact-checked against live ledger (BT01-001 CO-ANT, BT01-002 CO-CUN confirmed)
-- 7-issue critique addressed: BT01 repetition, "78+" overcounting, discovery/registry scope clarity, pricing math, carbon-first timeline, "Your First Credit" examples
-- Full repo audit: all DemoRunner tab/button targets verified, no orphaned files, routes match
-- Clean build, no TypeScript errors
-- `/end` skill created for session wrap-up workflow
+- 7-issue critique addressed + 5 structural issues from adversarial review fixed
+
+### Demo Slam Dunk Fixes (Feb 9, 2026)
+
+**Priority 1 — Credibility Armor:**
+- Evidence drawers pre-fetch on mount (no spinners during demo)
+- Query strings fixed to target actual KOI content (not client names that don't exist in KOI)
+- "Prepared Analysis" disclosure banner on both dashboards (dismissible, honest framing)
+- Presenter notes updated: "prepared analysis" not "synthesized view", close steps disclose preparation
+- `data-demo-target` attributes on all interactive elements for resilient automation
+
+**Priority 2 — "Wow" Moment:**
+- MappingTable expanded rows show live Ledger batch evidence (denom, jurisdiction, issuance date, status)
+- LiveQueryPanel on Credit Mapping tabs — interactive KOI search for ad-hoc demo moments
+- FirstCreditCard on both DealDossiers — concrete "Your First Credit" with specific project details
+- DemoRunner uses `data-demo-target` first, falls back to text matching
+
+**Priority 3 — Depth:**
+- Cached Ledger responses (`getCachedBatches`, `getCachedProjects`) prevent redundant API calls
+- MethodologyComparison component — expandable BT01/C-class requirements vs client methodology side-by-side
+- Renew: 8-row BT01 vs Wallacea Trust comparison
+- Landbanking: 8-row BT01 vs Landler Index + 6-row carbon comparison
 
 ### What's Left (Priority Order)
 
-1. **Pre-demo rehearsal** — Run the full automated demo 2-3 times and time Ledger API response on page load. If Track Record section is slow, consider caching.
-2. **Test KOI evidence drawers** — The DemoRunner clicks "View Supporting Evidence" at 1-second delay. If KOI API is slow, drawer shows spinner during the 10-second step window.
-3. **Explorer page testing** — Auto-fires client-specific queries. Depends on KOI latency. May need fallback if KOI is down.
-4. **GreenBiz 26 prep (Feb 17-19, Phoenix)** — Confirm if either client attends. In-person laptop demo >> video call.
-5. **Client-specific golden output polish** — Act 1 (deal dossier) and Act 3/4 golden outputs haven't been reframed with the same level of care as Act 2. Could benefit from a pass.
-6. **BUILD_PLAN.md update** — Implementation status section is stale (says "Phase 1 COMPLETE" but we're past Phase 3 now).
+1. **Deploy + end-to-end test** — rsync to production, `/web-test` both dashboards
+2. **Ingest client docs into KOI** — SSH to production, configure Drive sensor for both client folders. Single highest-impact change for evidence drawer relevance.
+3. **GreenBiz 26 prep (Feb 17-19, Phoenix)** — Confirm if either client attends. In-person laptop demo >> video call.
+4. **Pre-demo rehearsal** — Run full automated demo 2-3 times, verify evidence drawers open instantly
+5. **Explorer page testing** — Auto-fires client-specific queries. Depends on KOI latency.
 
 ### Open Questions
-- Should the discovery sprint deliverables be scoped down? Current scope is aggressive for $15-20K / 2 weeks (see critique in session notes).
+- Should the discovery sprint deliverables be scoped down? Current scope is aggressive for $15-20K / 2 weeks.
 - If a client asks "what if we do the registry work ourselves after discovery?" — prepare the answer.
 - Carbon on existing C-class: does it truly skip the 24-38 week governance review? Need to confirm with registry team.
 
@@ -78,9 +87,9 @@ A configured Claude agent + web dashboard for pitching Regen Network's registry 
 ## Web App (`web/`)
 
 - **Stack:** React 19 + Vite + TailwindCSS + Radix UI
-- **Build:** `cd web && npm run build` (clean, 443KB JS)
+- **Build:** `cd web && npm run build` (clean, 554KB JS)
 - **Dev:** `cd web && npm run dev`
-- **Deploy:** `cd web && npm run build && rsync -avz dist/ darren@202.61.196.119:/var/www/regen-bizdev/`
+- **Deploy:** `cd web && npm run build && rsync -avz dist/ darren@202.61.196.119:/opt/projects/regen-bizdev-web/`
 - **Routes:** `/` (landing), `/explore` (knowledge graph), `/renew` (dashboard), `/landbanking` (dashboard)
 - **Demo mode:** `?demo=renew` or `?demo=landbanking` URL param, or click buttons on landing page
 - **Keyboard:** Space (pause), arrows (navigate), Esc (exit)
@@ -93,9 +102,14 @@ A configured Claude agent + web dashboard for pitching Regen Network's registry 
 | `OpportunityCard` | Partnership opportunity with "Regen helps" badge + commercial outcome |
 | `VerraComparison` | Balanced comparison table (acknowledges Verra strengths) |
 | `JourneyTimeline` | Horizontal stepper: Discovery → Registry → Governance → First Credit |
-| `DemoRunner` | Automated walkthrough with presenter notes, progress bar, keyboard controls |
-| `EvidenceDrawer` | Expandable panel that queries KOI for supporting documents |
+| `DemoRunner` | Automated walkthrough with `data-demo-target` support, presenter notes, keyboard controls |
+| `EvidenceDrawer` | Pre-fetches KOI evidence on mount (instant open during demo) |
 | `Explorer` | Interactive knowledge graph with entity resolution visualization |
+| `PreparedAnalysisBanner` | Honest disclosure: "Analysis prepared Feb 2026..." (dismissible) |
+| `LiveQueryPanel` | Interactive KOI search — type any topic, get live results |
+| `FirstCreditCard` | Concrete "Your First Credit" with project-specific details |
+| `MappingTable` | Credit class mapping with live Ledger batch evidence in expanded rows |
+| `MethodologyComparison` | Side-by-side: registry requirements vs client methodology |
 
 ### Live Data Sources
 | Source | API | What It Fetches |
@@ -146,6 +160,10 @@ regen-bizdev/
 └── CLAUDE.md                      # This file
 ```
 
+## Commercial Terms
+
+**Revenue split:** 50/50 between Symbiocene Labs and Regen Network (default). Custom splits may be negotiated per client depending on scope and who leads the engagement. Decided Feb 9, 2026.
+
 ## Team
 
 - **Darren** — KOI development, demo engineering, web app
@@ -169,6 +187,7 @@ Service account: `rag-ingestion-bot@koi-sensor.iam.gserviceaccount.com`
 | `5b7587bc` | Feb 7 | regen-bizdev | Golden outputs creation, initial demo scripts |
 | `ea32b8e6` | Feb 8 AM | regen-bizdev | Earlier session work |
 | `c4e9b3ab` | Feb 8 | RegenAI (parent) | **Main session:** 6-phase outcome-first reframing (web implementation + deployment + all doc updates). Continuation: BT01 ledger verification, 7-issue critique fixes, full repo audit, `/end` skill. |
+| `9df37eeb` | Feb 9 | regen-bizdev | **Demo Slam Dunk:** Adversarial review fixes — eager evidence fetch, query string fixes, PreparedAnalysisBanner, LiveQueryPanel, FirstCreditCard, MappingTable batch evidence, MethodologyComparison, data-demo-target, cached Ledger helpers, presenter note updates. |
 
 **To load full context from the main implementation session:**
 ```

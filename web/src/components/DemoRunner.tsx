@@ -7,6 +7,12 @@ import type { DemoStep, DemoAction } from '../data/demoSteps';
 function executeAction(action: DemoAction) {
   switch (action.type) {
     case 'click-tab': {
+      // Prefer data-demo-target for resilient matching, fall back to text content
+      const byAttr = action.target ? document.querySelector(`[data-demo-target="${action.target}"]`) as HTMLElement : null;
+      if (byAttr) {
+        byAttr.click();
+        break;
+      }
       const tabs = document.querySelectorAll('button[role="tab"]');
       for (const tab of tabs) {
         if (tab.textContent?.trim() === action.target) {
@@ -17,6 +23,13 @@ function executeAction(action: DemoAction) {
       break;
     }
     case 'click-button': {
+      // Prefer data-demo-target, fall back to text content matching
+      const byAttr = action.target ? document.querySelector(`[data-demo-target="${action.target}"]`) as HTMLElement : null;
+      if (byAttr) {
+        byAttr.click();
+        byAttr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        break;
+      }
       const buttons = document.querySelectorAll('button');
       for (const btn of buttons) {
         if (btn.textContent?.includes(action.target || '')) {

@@ -43,7 +43,7 @@ export const renewSteps: DemoStep[] = [
     act: 'Act 1',
     title: 'Deal Dossier',
     notes:
-      'We loaded the call transcripts and prospect brief into the system. Here\'s the synthesized view — relationship timeline, needs assessment, risk matrix, and open items. Impressive preparation, but table stakes for a good AI tool.',
+      'We prepared this analysis using call transcripts, prospect materials, and the knowledge graph. The live evidence panels show the actual documents that informed it. This is what a client engagement starts with.',
     duration: 10000,
     actions: [
       { type: 'scroll-top', delay: 200 },
@@ -55,7 +55,7 @@ export const renewSteps: DemoStep[] = [
     act: 'Act 1',
     title: 'Live Evidence Backing',
     notes:
-      'This evidence panel pulls live from the knowledge graph — these are real documents backing the analysis, not hallucinated citations. The system queried KOI and found supporting documents from Discourse, GitHub, and the registry handbook.',
+      'These evidence panels query the knowledge graph right now — real registry documents, not generated summaries. Click any link to see the original source.',
     duration: 10000,
     actions: [
       { type: 'click-button', target: 'View Supporting Evidence', delay: 1000 },
@@ -110,7 +110,7 @@ export const renewSteps: DemoStep[] = [
     act: 'Close',
     title: 'The Pitch',
     notes:
-      'The UI is buildable — anyone with Claude Code could vibe-code a dashboard. But where does the data come from? 78+ credit batches issued, 58 projects across 10 countries, 4-year production track record. Plus 69,000 indexed documents, entity resolution, and on-chain verification. That\'s the moat. For Renew: carbon stacking ready now, biodiversity registration on an 8-week pathway, starting with a 2-week discovery sprint.',
+      'The analysis you saw was prepared for this meeting. The infrastructure behind it — knowledge graph, ledger queries, entity resolution — that\'s what we deploy for clients. For Renew: carbon stacking ready now, biodiversity registration on an 8-week pathway, starting with a 2-week discovery sprint.',
     duration: 14000,
     actions: [{ type: 'scroll-top', delay: 200 }],
   },
@@ -143,7 +143,7 @@ export const landbankingSteps: DemoStep[] = [
     act: 'Act 1',
     title: 'Deal Dossier',
     notes:
-      'We analyzed both alignment memos — $REGEN Token and Agile Tokenization — along with the prospect materials. The agent recommends leading with Agile Tokenization: lower commitment, proves value faster. Smart strategic analysis, but not the differentiator.',
+      'We prepared this analysis from both alignment memos and prospect materials. The evidence panels show the actual registry documents that informed each assessment. This is what a client engagement starts with.',
     duration: 10000,
     actions: [
       { type: 'scroll-top', delay: 200 },
@@ -155,7 +155,7 @@ export const landbankingSteps: DemoStep[] = [
     act: 'Act 1',
     title: 'Live Evidence Backing',
     notes:
-      'These evidence panels pull live from the knowledge graph — real documents backing each assessment, not AI-generated summaries. The system queries KOI and returns supporting documents from multiple source types.',
+      'These evidence panels query the knowledge graph right now — real registry documents, not generated summaries. Click any link to see the original source.',
     duration: 10000,
     actions: [
       { type: 'click-button', target: 'View Supporting Evidence', delay: 1000 },
@@ -221,7 +221,7 @@ export const landbankingSteps: DemoStep[] = [
     act: 'Close',
     title: 'The Pitch',
     notes:
-      'Landler measures. Your KOI instance manages the knowledge. Regen\'s registry governs and verifies. Three layers, each doing what it\'s best at. The track record: 78+ batches, 58 projects, 4-year production history, biodiversity credits already live. For Landbanking: carbon registration immediate, a 2-week discovery sprint to map the full pathway, then phased registration of each dimension. The discovery sprint is the next step.',
+      'The analysis you saw was prepared for this meeting. The infrastructure behind it — knowledge graph, ledger queries, entity resolution — that\'s what we deploy for clients. Landler measures, Regen governs and verifies. For Landbanking: carbon registration immediate, a 2-week discovery sprint to map the full pathway, then phased registration of each dimension.',
     duration: 14000,
     actions: [{ type: 'scroll-top', delay: 200 }],
   },

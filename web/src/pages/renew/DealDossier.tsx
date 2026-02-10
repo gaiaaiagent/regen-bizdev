@@ -5,6 +5,7 @@ import { RiskMatrix } from '../../components/RiskMatrix';
 import { SprintProposal } from '../../components/SprintProposal';
 import { EvidenceDrawer } from '../../components/EvidenceDrawer';
 import { JourneyTimeline } from '../../components/JourneyTimeline';
+import { FirstCreditCard } from '../../components/FirstCreditCard';
 import { FileText, MessageSquare, ListChecks, Clock, Zap, Calendar } from 'lucide-react';
 
 export function DealDossier() {
@@ -26,7 +27,7 @@ export function DealDossier() {
         <CardContent>
           <p className="text-sm leading-relaxed text-muted-foreground">{act1.executiveSummary}</p>
           <EvidenceDrawer
-            query="Renew RePlanet biodiversity credit registry landscape restoration"
+            query="biodiversity credit registry data anchoring attestation verification"
             label="View Supporting Evidence"
           />
         </CardContent>
@@ -159,6 +160,15 @@ export function DealDossier() {
           <JourneyTimeline />
         </CardContent>
       </Card>
+
+      {/* Your First Credit */}
+      <FirstCreditCard
+        creditClass="BT01"
+        projectName="Oakwood Manor Biodiversity Credit"
+        location="Somerset, UK — Landscape-scale restoration site"
+        metric="Composite score 56.2 (baseline 31.8, +76.7% change)"
+        description="Content-hashed survey data anchored on-chain with Renew + BFI attestations. Five-taxa conservation-weighted biodiversity scoring verified through independent ecological review."
+      />
 
       {/* Open Items */}
       <Card>

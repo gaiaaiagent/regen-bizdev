@@ -1,6 +1,18 @@
 import type {
   Act1Data, Act2Data, Act3DataRenew, Act4DataRenew,
 } from './types';
+import type { ComparisonRow } from '../components/MethodologyComparison';
+
+export const bt01Comparison: ComparisonRow[] = [
+  { requirement: 'Biodiversity unit definition', registryExpects: 'Weighted 10m² score of long-term restoration/preservation', clientProvides: 'Conservation-weighted taxa score (1-5 scale per taxon, 5 taxa)', status: 'partial' },
+  { requirement: 'Spatial reference', registryExpects: 'Area-based (10m² resolution)', clientProvides: 'Site-level (landscape scale, not gridded)', status: 'partial' },
+  { requirement: 'Baseline establishment', registryExpects: 'Pre-intervention baseline with documented protocol', clientProvides: 'Baseline: 31.8 composite (Oakwood Manor)', status: 'aligned' },
+  { requirement: 'Monitoring methodology', registryExpects: 'Reproducible field protocol with QA/QC', clientProvides: 'Wallacea Trust v2.1 — 5 standardized field methods', status: 'aligned' },
+  { requirement: 'Additionality framework', registryExpects: 'Documented counterfactual scenario', clientProvides: 'Not yet formalized for registry submission', status: 'gap' },
+  { requirement: 'Data anchoring', registryExpects: 'Content-hashed data on Regen Ledger', clientProvides: 'Field data in JSON — needs hash + anchor workflow', status: 'partial' },
+  { requirement: 'Third-party verification', registryExpects: 'Independent verifier attestation', clientProvides: 'BFI identified as potential verifier — not formalized', status: 'partial' },
+  { requirement: 'Composite score methodology', registryExpects: 'Transparent, peer-reviewed calculation', clientProvides: 'Conservation weighting published (Wallacea Trust)', status: 'aligned' },
+];
 
 export const act1: Act1Data = {
   title: 'Deal Dossier: Renew/RePlanet',

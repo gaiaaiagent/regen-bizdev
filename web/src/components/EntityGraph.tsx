@@ -15,6 +15,7 @@ const TYPE_COLORS: Record<string, { fill: string; stroke: string; text: string }
   Project: { fill: '#ffedd5', stroke: '#ea580c', text: '#c2410c' },
   Concept: { fill: '#f3f4f6', stroke: '#6b7280', text: '#374151' },
   Document: { fill: '#fef3c7', stroke: '#d97706', text: '#b45309' },
+  Location: { fill: '#e0f2fe', stroke: '#0284c7', text: '#0369a1' },
 };
 
 function getColor(type?: string) {

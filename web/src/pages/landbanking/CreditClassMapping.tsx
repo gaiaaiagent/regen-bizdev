@@ -1,4 +1,4 @@
-import { act2 } from '../../data/landbanking';
+import { act2, bt01Comparison, carbonComparison } from '../../data/landbanking';
 import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/card';
 import { ReadinessScore } from '../../components/ReadinessScore';
 import { MappingTable } from '../../components/MappingTable';
@@ -9,6 +9,8 @@ import { EvidenceDrawer } from '../../components/EvidenceDrawer';
 import { VerraComparison } from '../../components/VerraComparison';
 import { KoiLivePanel } from '../../components/KoiLivePanel';
 import { LedgerLivePanel } from '../../components/LedgerLivePanel';
+import { LiveQueryPanel } from '../../components/LiveQueryPanel';
+import { MethodologyComparison } from '../../components/MethodologyComparison';
 import { cn } from '../../lib/utils';
 
 const confidenceStyles = {
@@ -106,8 +108,18 @@ export function CreditClassMapping() {
         <CardContent>
           <MappingTable mappings={act2.mappings} />
           <EvidenceDrawer
-            query="nature equity cocoa agroforestry carbon biodiversity credit class Regen registry"
+            query="carbon credit class C01 methodology agroforestry biodiversity BT01"
             label="View Source Evidence"
+          />
+          <MethodologyComparison
+            creditClass="BT01"
+            clientMethodology="Landler Biodiversity Index"
+            rows={bt01Comparison}
+          />
+          <MethodologyComparison
+            creditClass="C01-C09"
+            clientMethodology="Landler Carbon Assessment"
+            rows={carbonComparison}
           />
         </CardContent>
       </Card>
@@ -163,6 +175,7 @@ export function CreditClassMapping() {
           searchQuery="nature equity cocoa agroforestry carbon biodiversity credit class"
         />
         <LedgerLivePanel highlightClasses={['C01', 'C02', 'C03', 'C04', 'C05', 'C06', 'C07', 'C08', 'C09', 'BT']} />
+        <LiveQueryPanel suggestion="agroforestry carbon sequestration credit methodology" />
       </div>
     </div>
   );

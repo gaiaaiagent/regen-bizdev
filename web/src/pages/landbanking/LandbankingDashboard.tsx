@@ -6,6 +6,7 @@ import { GovernanceReview } from './GovernanceReview';
 import { VerificationPlan } from './VerificationPlan';
 import { StatCard } from '../../components/StatCard';
 import { ExportButton } from '../../components/ExportButton';
+import { PreparedAnalysisBanner } from '../../components/PreparedAnalysisBanner';
 import { getLedgerBatches } from '../../lib/koi';
 import { Gauge, Layers, CheckCircle, TrendingUp } from 'lucide-react';
 
@@ -48,13 +49,15 @@ export function LandbankingDashboard() {
         </div>
       </div>
 
+      <PreparedAnalysisBanner />
+
       <div ref={contentRef}>
         <Tabs defaultValue="mapping">
           <TabsList className="no-print w-full justify-start">
-            <TabsTrigger value="dossier">Deal Dossier</TabsTrigger>
-            <TabsTrigger value="mapping">Credit Mapping</TabsTrigger>
-            <TabsTrigger value="governance">Governance Review</TabsTrigger>
-            <TabsTrigger value="verification">Verification Plan</TabsTrigger>
+            <TabsTrigger value="dossier" data-demo-target="Deal Dossier">Deal Dossier</TabsTrigger>
+            <TabsTrigger value="mapping" data-demo-target="Credit Mapping">Credit Mapping</TabsTrigger>
+            <TabsTrigger value="governance" data-demo-target="Governance Review">Governance Review</TabsTrigger>
+            <TabsTrigger value="verification" data-demo-target="Verification Plan">Verification Plan</TabsTrigger>
           </TabsList>
 
           <TabsContent value="dossier">

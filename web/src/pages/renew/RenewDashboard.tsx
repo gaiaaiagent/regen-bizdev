@@ -6,6 +6,7 @@ import { DataAnchoring } from './DataAnchoring';
 import { IntegrationBlueprint } from './IntegrationBlueprint';
 import { StatCard } from '../../components/StatCard';
 import { ExportButton } from '../../components/ExportButton';
+import { PreparedAnalysisBanner } from '../../components/PreparedAnalysisBanner';
 import { getLedgerBatches } from '../../lib/koi';
 import { Gauge, Layers, CheckCircle, TrendingUp } from 'lucide-react';
 
@@ -48,13 +49,15 @@ export function RenewDashboard() {
         </div>
       </div>
 
+      <PreparedAnalysisBanner />
+
       <div ref={contentRef}>
         <Tabs defaultValue="mapping">
           <TabsList className="no-print w-full justify-start">
-            <TabsTrigger value="dossier">Deal Dossier</TabsTrigger>
-            <TabsTrigger value="mapping">Credit Mapping</TabsTrigger>
-            <TabsTrigger value="anchoring">Data Anchoring</TabsTrigger>
-            <TabsTrigger value="integration">Integration</TabsTrigger>
+            <TabsTrigger value="dossier" data-demo-target="Deal Dossier">Deal Dossier</TabsTrigger>
+            <TabsTrigger value="mapping" data-demo-target="Credit Mapping">Credit Mapping</TabsTrigger>
+            <TabsTrigger value="anchoring" data-demo-target="Data Anchoring">Data Anchoring</TabsTrigger>
+            <TabsTrigger value="integration" data-demo-target="Integration">Integration</TabsTrigger>
           </TabsList>
 
           <TabsContent value="dossier">

@@ -5,6 +5,7 @@ import { RiskMatrix } from '../../components/RiskMatrix';
 import { SprintProposal } from '../../components/SprintProposal';
 import { EvidenceDrawer } from '../../components/EvidenceDrawer';
 import { JourneyTimeline } from '../../components/JourneyTimeline';
+import { FirstCreditCard } from '../../components/FirstCreditCard';
 import { FileText, MessageSquare, ListChecks, Clock, Zap, Calendar } from 'lucide-react';
 
 export function DealDossier() {
@@ -26,7 +27,7 @@ export function DealDossier() {
         <CardContent>
           <p className="text-sm leading-relaxed text-muted-foreground">{act1.executiveSummary}</p>
           <EvidenceDrawer
-            query="Landbanking natural capital fintech ecological asset registry verification"
+            query="natural capital credit registry governance verification institutional"
             label="View Supporting Evidence"
           />
         </CardContent>
@@ -159,6 +160,15 @@ export function DealDossier() {
           <JourneyTimeline />
         </CardContent>
       </Card>
+
+      {/* Your First Credit */}
+      <FirstCreditCard
+        creditClass="C-class"
+        projectName="West African Cocoa Agroforestry Carbon Credit"
+        location="Cote d'Ivoire / Ghana — 2,400 hectares, Ritter Sport partnership"
+        metric="5.8 tCO2e/ha/yr carbon sequestration (high confidence)"
+        description="Anchored on-chain with independent carbon auditor verification. Carbon dimension maps directly to C01-C09 — the quickest path to first credit issuance while biodiversity registration follows."
+      />
 
       {/* Open Items */}
       <Card>
