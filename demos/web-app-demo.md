@@ -8,7 +8,7 @@ _Reusable Act — insert into any client demo to showcase the web applications_
 
 **URLs:**
 - BizDev Intelligence Dashboard: `https://regen.gaiaai.xyz/bizdev/` (basic auth: `demo` / `regen2026`)
-- Registry Review App: `https://regen.gaiaai.xyz` (requires authentication)
+- Registry Review App: `https://registry.regen.gaiaai.xyz/` (requires authentication — confirm credentials with Shawn before demo)
 
 ---
 

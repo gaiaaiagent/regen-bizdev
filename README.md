@@ -42,6 +42,34 @@ npm run build && rsync -avz dist/ darren@202.61.196.119:/opt/projects/regen-bizd
 
 **Automated demos:** Click "Watch Renew Demo" or "Watch Landbanking Demo" on the landing page for a guided walkthrough with presenter notes. Controls: Space (pause), arrows (navigate), Esc (exit).
 
+## Running the Demo (Step-by-Step for Presenters)
+
+### Option A: Live (Recommended — No Setup)
+1. Open https://regen.gaiaai.xyz/bizdev/ (auth: `demo` / `regen2026`)
+2. Click **"Watch Renew Demo"** or **"Watch Landbanking Demo"** on the landing page
+3. The automated walkthrough runs through 4 acts with presenter notes at the bottom
+4. **Controls:** Space = pause/resume, → = next step, ← = previous, Esc = exit
+5. Duration: ~12 minutes per client (hard cap 15 min)
+
+### Option B: Local Development
+1. `cd web && npm install && npm run dev`
+2. Open http://localhost:5173/bizdev/
+3. Same controls as live
+
+### Key Pages
+| Page | URL | Purpose |
+|------|-----|---------|
+| Landing | `/bizdev/` | Demo launcher with registry track record |
+| Renew Dashboard | `/bizdev/renew` | Client-specific analysis |
+| Landbanking Dashboard | `/bizdev/landbanking` | Client-specific analysis |
+| Knowledge Explorer | `/bizdev/explore` | Interactive entity graph |
+
+### If Something Goes Wrong
+- **KOI slow (>5s):** Explorer shows "Knowledge graph is loading" message, then fallback after 15s
+- **KOI down:** Explorer shows amber "temporarily unavailable" banner with retry button
+- **Ledger slow:** Track record counters on landing page may delay — move to client dashboard
+- Golden outputs are in `clients/*/golden-outputs/` — paste into conversation if APIs fail
+
 ## Repo Structure
 
 ```

@@ -35,6 +35,8 @@ Our preliminary assessment identified **carbon as ready for immediate registrati
 
 **What you get:** A clear answer on each dimension's registry pathway. The discovery sprint produces **assessment and recommendations** (paper deliverables). Carbon is ready now. Biodiversity has a proven pathway (BT01). Soil, water, and social are the partnership opportunity. If the discovery sprint confirms viability, the registry sprint produces **working software** — testnet prototypes, attestation proof-of-concept, and an investor credibility package. Low risk, high information.
 
+*The discovery sprint produces an assessment like the Credit Class Mapping in this document — validated against live ledger data, with a go/no-go recommendation and calibrated cost estimates for the full registry sprint.*
+
 **Next step:** 30-minute scoping call to define discovery sprint objectives.
 
 ---

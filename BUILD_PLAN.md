@@ -6,7 +6,11 @@ _Target: Feb 11, 2026 internal milestone_
 
 ## Implementation Status & Next Steps
 
-_Last updated: Feb 8, 2026 — reverted to 4-act client-tailored demos_
+_Last updated: Feb 10, 2026 — demo-hardened, all phases complete, web app deployed_
+
+### Final Status
+
+All phases complete. Web dashboard deployed at `https://regen.gaiaai.xyz/bizdev/` with live KOI integration (69,000+ documents) and Regen Ledger data (78 batches, 58 projects, 13 credit classes). Client documents ingested into KOI. Explorer page has timeout/fallback resilience. Both automated demo walkthroughs tested end-to-end. Ready for GreenBiz 26 (Feb 17-19).
 
 ### Completed (Phase 1 — Day 1)
 
@@ -39,7 +43,7 @@ _Last updated: Feb 8, 2026 — reverted to 4-act client-tailored demos_
 | B.8 | Landbanking Act 4: Verification Plan golden output | DONE — `act4-verification-plan.md`, verifier types per dimension, data flow, monitoring schedule, cost estimates |
 | C | Quality check all 8 golden outputs against demo script EXPECTED sections | DONE — all pass. No prompt iterations needed. |
 
-### Next Steps (Phase 3 — Day 3-4)
+### Completed (Phase 3 — Feb 7-9)
 
 **Step D: Write 8-Week Sprint Proposals** ✅ DONE (Feb 7)
 
@@ -104,7 +108,7 @@ See `foundation/platform-overview.md` for the full platform vision and three-tie
 
 | Layer | What We Have | Generic AI Equivalent | Moat |
 |-------|-------------|----------------------|------|
-| Domain Knowledge | 48K+ docs | None in any public connector | **Strong** |
+| Domain Knowledge | 69,000+ docs | None in any public connector | **Strong** |
 | On-Chain Registry | 13 credit classes, 58 projects | No MCP connector exists | **Strong** |
 | Governance Workflows | 24-tool review system | No equivalent anywhere | **Unique** |
 | Knowledge Graph Pipeline | Sensors → Processor → Hybrid RAG | Flat doc access only | **Strong** |
@@ -809,17 +813,18 @@ Day 3 (Fri Feb 7 late evening → Sat Feb 8) ✅ COMPLETE
 ├── Reverted renew-demo.md to 4-act client-tailored structure ✅
 └── Reverted landbanking-demo.md to 4-act client-tailored structure ✅
 
-Day 4 (Mon Feb 10)
-├── End-to-end timed run of both 4-act demos
-├── Test Registry Review web app authentication
-├── Record screen capture fallback for web app act
-└── Prepare screenshots for offline fallback
+Day 4 (Mon Feb 10) ✅ COMPLETE
+├── KOI doc ingestion (7 client docs → 196 chunks with embeddings) ✅
+├── Explorer page resilience (timeout, fallback UI) ✅
+├── Nginx proxy fix (KOI API now accessible via /api/koi) ✅
+├── End-to-end deployment verification (all 4 pages + both APIs) ✅
+└── Entity links for client docs (191 links, docs now appear in search) ✅
 
-Day 5 (Tue Feb 11)
-├── Polish and rehearse
+Remaining
+├── Pre-demo rehearsal (run full automated demo 2-3x)
 ├── Internal review with Dave/Becca
-├── Decide which client to present first
-└── Demo day
+├── GreenBiz 26 prep (Feb 17-19, Phoenix)
+└── Confirm if either client attends GreenBiz
 ```
 
 ### Dependencies

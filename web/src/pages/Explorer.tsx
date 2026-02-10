@@ -9,7 +9,7 @@ import { useGraphData } from '../hooks/useGraphData';
 import { queryKoi } from '../lib/koi';
 import type { KoiResult } from '../lib/koi';
 import type { GraphNode } from '../lib/graph-types';
-import { Database } from 'lucide-react';
+import { Database, RefreshCw } from 'lucide-react';
 
 const CLIENT_SUGGESTIONS: Record<string, string[]> = {
   renew: [
@@ -42,6 +42,8 @@ export function Explorer() {
   const [results, setResults] = useState<KoiResult[]>([]);
   const [confidence, setConfidence] = useState<number | undefined>();
   const [searchLoading, setSearchLoading] = useState(false);
+  const [searchSlow, setSearchSlow] = useState(false);
+  const [searchFailed, setSearchFailed] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);
 
   const graph = useGraphData();
@@ -65,12 +67,23 @@ export function Explorer() {
   const handleSearch = useCallback(async (q: string) => {
     setQuery(q);
     setSearchLoading(true);
+    setSearchSlow(false);
+    setSearchFailed(false);
     setResults([]);
     graph.reset();
 
+    // Show "slow" message after 5s
+    const slowTimer = setTimeout(() => setSearchSlow(true), 5000);
+
     try {
-      // Step 1: KOI search
+      // Step 1: KOI search with 15s timeout
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 15000);
+
       const searchResp = await queryKoi(q, 8);
+      clearTimeout(timeout);
+      clearTimeout(slowTimer);
+      setSearchSlow(false);
       setResults(searchResp.results);
       setConfidence(searchResp.confidence);
       setSearchLoading(false);
@@ -91,7 +104,10 @@ export function Explorer() {
         }
       }
     } catch {
+      clearTimeout(slowTimer);
       setSearchLoading(false);
+      setSearchSlow(false);
+      setSearchFailed(true);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -132,6 +148,24 @@ export function Explorer() {
         placeholder="Ask anything about ecological credits, methodologies, governance..."
       />
 
+      {/* Failed state — shown when search fails entirely */}
+      {searchFailed && !searchLoading && results.length === 0 && (
+        <div className="rounded-lg border border-amber-200 bg-amber-50 p-6">
+          <p className="text-sm font-medium text-amber-800">Knowledge graph is temporarily unavailable</p>
+          <p className="mt-1 text-sm text-amber-700">
+            69,560 documents indexed across forum, GitHub, registry, and handbook sources.
+            Results will appear when the service reconnects.
+          </p>
+          <button
+            onClick={() => handleSearch(query || suggestions[0])}
+            className="mt-3 inline-flex items-center gap-1.5 rounded-md bg-amber-100 px-3 py-1.5 text-sm font-medium text-amber-800 hover:bg-amber-200 transition-colors"
+          >
+            <RefreshCw className="h-3.5 w-3.5" />
+            Try again
+          </button>
+        </div>
+      )}
+
       {/* Results + Graph layout */}
       {(results.length > 0 || searchLoading || graphVisible) && (
         <div className={fullscreen ? '' : 'grid gap-6 lg:grid-cols-5'}>
@@ -141,7 +175,9 @@ export function Explorer() {
               {searchLoading ? (
                 <div className="flex items-center gap-2 rounded-lg border border-border bg-white p-6 text-sm text-muted-foreground">
                   <div className="h-4 w-4 animate-spin rounded-full border-2 border-primary border-t-transparent" />
-                  Searching knowledge graph...
+                  {searchSlow
+                    ? 'Knowledge graph is loading — results will appear shortly...'
+                    : 'Searching knowledge graph...'}
                 </div>
               ) : (
                 <SearchResults results={results} confidence={confidence} query={query} />

@@ -36,6 +36,8 @@ Our preliminary assessment identified **2 credit classes matched** (carbon via C
 
 **What you get:** A clear answer — does the Wallacea Trust methodology have a viable pathway on Regen's registry? The discovery sprint produces **assessment and recommendations** (paper deliverables). If it confirms viability, the registry sprint produces **working software** — testnet prototypes, API scaffolds, data anchoring proof-of-concept. If not, you've invested $15-20K to avoid a much larger misalignment.
 
+*The discovery sprint produces an assessment like the Credit Class Mapping in this document — validated against live ledger data, with a go/no-go recommendation and calibrated cost estimates for the full registry sprint.*
+
 **Next step:** 30-minute scoping call to define discovery sprint objectives.
 
 ---
