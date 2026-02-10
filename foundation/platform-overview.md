@@ -12,6 +12,43 @@ A client with Claude Desktop can chat about their documents. A client with our i
 
 ---
 
+## Current Status (Feb 10, 2026)
+
+**Demo-ready.** Web app deployed, client docs ingested, all materials aligned for GreenBiz 26.
+
+**Live demo:** https://regen.gaiaai.xyz/bizdev/ (auth: `demo` / `regen2026`)
+
+### What's Built
+- Interactive web dashboard with live Regen Ledger + KOI knowledge graph integration
+- Automated demo walkthroughs for both pilot clients (keyboard-controlled, presenter notes)
+- 8 golden outputs (4 per client): deal dossier, credit class mapping, governance/data-anchoring, verification/integration
+- Client-specific sprint proposals with discovery sprint ($15-20K) entry point
+- D3 force-directed Graph Explorer for interactive knowledge graph navigation
+- 7 client docs ingested into KOI (196 chunks, 191 entity links)
+
+### Pilot Clients
+
+| Client | Fit | Entry Point | Key Framing |
+|--------|-----|-------------|-------------|
+| **Renew/RePlanet** (UK) | 2 credit classes matched (Carbon C01-C09, Biodiversity BT01) | Discovery sprint: $15-20K | Wallacea Trust 5-taxa methodology → BT01 scoring integration |
+| **Landbanking Group** (Munich) | Carbon ready now, BT01 partial, 3 gaps (soil, water, social) | Discovery sprint: $15-20K | "Landler measures. Regen governs and verifies." NOT an AI demo. |
+
+### Team
+- **Darren** — KOI development, demo engineering, web app
+- **Shawn** — Registry Review Agent
+- **Dave/Becca** — Client curation, user journey
+- **Gregory** — Strategy, partnerships
+
+### Commercial Terms
+**Revenue split:** 50/50 between Symbiocene Labs and Regen Network (default). Custom splits negotiable per client.
+
+### Timeline
+- **Feb 11** — BizDev front-end MVP (READY)
+- **Feb 17-19** — GreenBiz 26 (Phoenix) — potential in-person demos
+- **Repo:** https://github.com/gaiaaiagent/regen-bizdev
+
+---
+
 ## The Competitive Moat
 
 | Layer | What We Have | Generic AI Equivalent | Moat |
