@@ -199,6 +199,27 @@ Discovery Sprint (2 wks) → Registry Sprint (8 wks) → Carbon Credits Live (~M
 - Symbiocene Labs: KOI knowledge infrastructure, AI-assisted analysis, demo engineering, integration support
 - Regen Network: Registry infrastructure, governance expertise, verification framework, credit issuance
 
+## Beyond the Sprint
+
+### Your Own Knowledge Platform
+
+If the sprint validates fit, we can deploy dedicated knowledge infrastructure for Landbanking — your ecological assessment data, Landler methodology documentation, and verification evidence organized in a semantic knowledge graph with AI tools tuned to natural capital finance. Same infrastructure Regen Network built for itself. Your internal data stays private and auth-gated; only the public Regen corpus is shared.
+
+### Ecological Knowledge Commons (Planned)
+
+Your work on carbon and biodiversity credit mapping creates precedent that strengthens the entire registry ecosystem. With your consent, select methodology insights and governance review learnings (not raw data or proprietary methodologies) can join a shared intelligence base — reducing friction for future credit classes and accelerating governance reviews. Default is private; you choose what, if anything, to share.
+
+### Open Data Philosophy
+
+The public Regen knowledge graph is open and queryable via the KOI MCP — 69,000+ documents about credit methodologies, governance standards, and registry operations, available to anyone with no authentication required. Internal team data and client data are private and auth-gated. Openness applies to the public corpus; expertise and deployment are the product.
+
+**Access model:**
+- **Public corpus:** 69,000+ docs, no auth, open to anyone
+- **Private org data:** Your engagement artifacts, internal analysis — auth-gated, never shared
+- **Optional commons:** Planned, opt-in. You choose what to contribute. Default is private.
+
+---
+
 ## Start Here
 
 **2-week discovery sprint — $15-20K.** Full credit class mapping per dimension, governance pre-review, go/no-go recommendation. Low risk, high information.

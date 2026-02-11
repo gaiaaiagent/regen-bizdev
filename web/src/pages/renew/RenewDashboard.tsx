@@ -7,6 +7,7 @@ import { IntegrationBlueprint } from './IntegrationBlueprint';
 import { StatCard } from '../../components/StatCard';
 import { ExportButton } from '../../components/ExportButton';
 import { PreparedAnalysisBanner } from '../../components/PreparedAnalysisBanner';
+import { BeyondTheSprint } from '../../components/BeyondTheSprint';
 import { getLedgerBatches } from '../../lib/koi';
 import { Gauge, Layers, CheckCircle, TrendingUp } from 'lucide-react';
 
@@ -74,6 +75,11 @@ export function RenewDashboard() {
           </TabsContent>
         </Tabs>
       </div>
+
+      <BeyondTheSprint
+        platformDescription="Dedicated knowledge infrastructure for Renew — your own semantic knowledge graph, custom AI tools, and web interface. Same infrastructure Regen built for itself."
+        commonsDescription="With your consent, select methodology learnings and governance precedents can join a shared ecological intelligence base. Default is private; you choose what to share."
+      />
     </div>
   );
 }

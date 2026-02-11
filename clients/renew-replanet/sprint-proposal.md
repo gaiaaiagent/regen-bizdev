@@ -182,6 +182,27 @@ Discovery Sprint (2 weeks) → Registry Sprint (8 weeks) → Governance Review (
 - Symbiocene Labs: KOI knowledge infrastructure, AI-assisted analysis, demo engineering, integration support
 - Regen Network: Registry infrastructure, governance expertise, verification framework, credit issuance
 
+## Beyond the Sprint
+
+### Your Own Knowledge Platform
+
+If the sprint validates fit, we can deploy dedicated knowledge infrastructure for Renew — your own semantic knowledge graph populated from your data sources, custom AI tools tuned to your domain, and a web interface for your team. Same infrastructure Regen Network built for itself. Your internal data stays private and auth-gated; only the public Regen corpus is shared.
+
+### Ecological Knowledge Commons (Planned)
+
+As the registry ecosystem grows, we're building toward opt-in knowledge sharing between participating organizations. With your consent, select governance review precedents and methodology learnings (not raw data or proprietary methodologies) can contribute to a shared intelligence base — accelerating future reviews for you and others building on similar credit classes. Default is private; you choose what, if anything, to share.
+
+### Open Data Philosophy
+
+The public Regen knowledge graph is open and queryable via the KOI MCP — 69,000+ documents about credit methodologies, governance standards, and registry operations, available to anyone with no authentication required. Internal team data and client data are private and auth-gated. We believe ecological data should be a commons, not an enclosure. What we provide beyond the data is the expertise to build institutional workflows on top of it.
+
+**Access model:**
+- **Public corpus:** 69,000+ docs, no auth, open to anyone
+- **Private org data:** Your engagement artifacts, internal analysis — auth-gated, never shared
+- **Optional commons:** Planned, opt-in. You choose what to contribute. Default is private.
+
+---
+
 ## Start Here
 
 **2-week discovery sprint — $15-20K.** Full credit class mapping, pre-review simulation, go/no-go recommendation. Low risk, high information.

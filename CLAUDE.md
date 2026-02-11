@@ -2,7 +2,7 @@
 
 ## What This Is
 
-A configured Claude agent + web dashboard for pitching Regen Network's registry infrastructure to pilot clients. The demo shows live data from the Regen blockchain (78 credit batches, 58 projects, 13 credit classes) and a 69,000-document knowledge graph, combined into client-specific dashboards that map their ecological assets to Regen's credit class framework.
+A configured Claude agent + web dashboard for pitching Regen Network's registry infrastructure to pilot clients. The demo shows live data from the Regen blockchain (78 credit batches, 58 projects, 13 credit classes) and a 69,000-document knowledge graph (open, queryable via KOI MCP), combined into client-specific dashboards that map their ecological assets to Regen's credit class framework. Value proposition: open data + proprietary workflows + registry expertise + planned ecological knowledge commons (opt-in, sovereignty-controlled).
 
 **Live demo:** `https://regen.gaiaai.xyz/bizdev/` (basic auth: `demo` / `regen2026`, deployed on `darren@202.61.196.119`)
 
@@ -52,6 +52,7 @@ A configured Claude agent + web dashboard for pitching Regen Network's registry 
 1. **GreenBiz 26 prep (Feb 17-19, Phoenix)** — Confirm if either client attends. In-person laptop demo >> video call.
 2. **Pre-demo rehearsal** — Run full automated demo 2-3 times, verify evidence drawers open instantly
 3. **Internal review with Dave/Becca** — Walk through both demos, get feedback on flow and messaging
+4. **Strategic messaging alignment** — Team review of knowledge commons framing, openness narrative, "Beyond the Sprint" positioning
 
 ### Open Questions
 - Should the discovery sprint deliverables be scoped down? Current scope is aggressive for $15-20K / 2 weeks.
@@ -139,6 +140,7 @@ regen-bizdev/
 ├── foundation/                    # Shared agent infrastructure
 │   ├── system-prompt.md           # Base system prompt
 │   ├── platform-overview.md       # Regen platform technical overview
+│   ├── knowledge-commons.md       # Team-facing knowledge commons one-pager
 │   └── workflows/                 # 5 reusable workflow definitions
 ├── clients/
 │   ├── renew-replanet/
@@ -198,6 +200,7 @@ Service account: `rag-ingestion-bot@koi-sensor.iam.gserviceaccount.com`
 | `c4e9b3ab` | Feb 8 | RegenAI (parent) | **Main session:** 6-phase outcome-first reframing (web implementation + deployment + all doc updates). Continuation: BT01 ledger verification, 7-issue critique fixes, full repo audit, `/end` skill. |
 | `9df37eeb` | Feb 9 | regen-bizdev | **Demo Slam Dunk:** Adversarial review fixes — eager evidence fetch, query string fixes, PreparedAnalysisBanner, LiveQueryPanel, FirstCreditCard, MappingTable batch evidence, MethodologyComparison, data-demo-target, cached Ledger helpers, presenter note updates. |
 | `fadfb2eb` | Feb 10 | regen-bizdev | **GreenBiz Readiness:** KOI client doc ingestion (196 chunks + 191 entity links), Explorer timeout/fallback, nginx proxy fix, D3 Graph Explorer, doc polish (BUILD_PLAN, README, pre-demo checklist, sprint proposals, web-app-demo URL fix). |
+| *(current)* | Feb 10 | regen-bizdev | **Strategic Reframing:** Knowledge commons, open data philosophy, "Beyond the Sprint" sections. Reframed competitive moat (open data + proprietary workflows), added access model, updated system prompt with 3-tier awareness + openness guidance, created knowledge-commons.md team doc. |
 
 **To load full context from the main implementation session:**
 ```

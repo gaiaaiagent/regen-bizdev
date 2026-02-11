@@ -7,6 +7,7 @@ import { VerificationPlan } from './VerificationPlan';
 import { StatCard } from '../../components/StatCard';
 import { ExportButton } from '../../components/ExportButton';
 import { PreparedAnalysisBanner } from '../../components/PreparedAnalysisBanner';
+import { BeyondTheSprint } from '../../components/BeyondTheSprint';
 import { getLedgerBatches } from '../../lib/koi';
 import { Gauge, Layers, CheckCircle, TrendingUp } from 'lucide-react';
 
@@ -74,6 +75,11 @@ export function LandbankingDashboard() {
           </TabsContent>
         </Tabs>
       </div>
+
+      <BeyondTheSprint
+        platformDescription="Dedicated knowledge infrastructure for Landbanking — ecological assessment data, Landler methodology docs, and verification evidence in a semantic knowledge graph with AI tools tuned to natural capital finance."
+        commonsDescription="With your consent, select methodology insights and governance learnings can join a shared intelligence base — reducing friction for future credit classes. Default is private; you choose what to share."
+      />
     </div>
   );
 }

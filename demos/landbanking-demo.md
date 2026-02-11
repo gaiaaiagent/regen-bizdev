@@ -155,6 +155,10 @@ The Explorer auto-fires the first Landbanking-specific query ("multi-dimensional
 >
 > "For Landbanking: carbon registration immediate. A 2-week discovery sprint maps the full pathway — $15-20K, credit class mapping per dimension, governance pre-review, go/no-go recommendation. Then phased registration of each dimension. The discovery sprint is the next step."
 
+**OPTIONAL — If they ask about long-term value or network effects:**
+
+> "Your carbon credit mapping creates governance precedent that, with your consent, can accelerate future natural capital credit classes. Select methodology learnings you choose to share strengthen the registry's governance foundation — and that ecosystem strength comes back to benefit your credits. Nothing is shared without your explicit opt-in. Default is private. And the knowledge graph itself is open — 69,000 documents, no auth required. We believe ecological data should be a commons. The expertise to build institutional workflows on top of it is the product."
+
 ---
 
 ### Follow-Up: Discovery Sprint Proposal (send same day)

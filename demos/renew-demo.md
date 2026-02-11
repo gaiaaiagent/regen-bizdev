@@ -146,6 +146,10 @@ The Explorer auto-fires the first Renew-specific query ("biodiversity credit met
 >
 > "For Renew: carbon stacking ready now, biodiversity registration on an 8-week pathway. Starting with a 2-week discovery sprint — $15-20K, full credit class mapping, go/no-go recommendation. That's the next step."
 
+**OPTIONAL — If they ask about long-term value beyond the sprint:**
+
+> "With your consent, your methodology learnings can become part of a growing ecological knowledge commons. Other organizations building on BT01 benefit from the precedent you establish — and you benefit from theirs. It's a network, not just a consulting engagement. Nothing is shared without your explicit opt-in — you choose what, if anything, to contribute. And by the way, the knowledge graph itself is open. 69,000 documents, queryable by anyone, no auth. We believe ecological data should be a commons. What we provide is the expertise to build on top of it."
+
 ---
 
 ### Follow-Up: Discovery Sprint Proposal (send same day)

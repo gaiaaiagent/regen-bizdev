@@ -53,12 +53,13 @@ A client with Claude Desktop can chat about their documents. A client with our i
 
 | Layer | What We Have | Generic AI Equivalent | Moat |
 |-------|-------------|----------------------|------|
-| **Domain Knowledge** | 69,000+ docs: credit methodologies, governance standards, forum discussions, technical specs | None — not in any public connector | **Strong** |
+| **Domain Knowledge** | 69,000+ docs: credit methodologies, governance standards, forum discussions, technical specs. Open and queryable via KOI MCP — no auth required. | None — not in any public connector | **Open data, proprietary workflows.** Anyone can query the corpus. The moat is what we build on top: curated workflows, registry expertise, deployment infrastructure. |
 | **On-Chain Registry** | 13 credit classes, 58 projects, real attestation infrastructure, marketplace data | No MCP connector exists for Regen Ledger | **Strong** |
 | **Governance Workflows** | 24-tool registry review system, 8-stage methodology approval simulation | No equivalent anywhere | **Unique** |
 | **Knowledge Graph Pipeline** | Sensors → Event Bridge → Processor → pgvector + Fuseki → Hybrid RAG | Notion/Drive connectors give flat doc access, not semantic graph | **Strong** |
 | **Custom Web Apps** | Registry Review (React 19 + FastAPI), white-labelable in days | Client would need to build from scratch | **Strong** |
 | **AI Agents** | ElizaOS agents with domain expertise, MCP integration, Telegram/web | Claude Desktop is single-user, no multi-channel | **Moderate** |
+| **Network Effects** | Growing commons of ecological methodology knowledge from partner organizations (planned, opt-in). Shared governance precedents accelerate future reviews. | No equivalent at Verra/Gold Standard — proprietary, siloed knowledge. | **Emerging** — compounds with each new participant. |
 
 ---
 
@@ -151,6 +152,37 @@ Client Environment
 
 ---
 
+## Access Model
+
+- **Public corpus:** 69,000+ documents queryable via KOI MCP, no auth required, open to anyone. Credit methodologies, governance standards, forum discussions, technical specs.
+- **Private org data:** Internal team data and client-specific data are auth-gated and never shared. Client engagement artifacts, proprietary methodologies, and internal analysis stay private.
+- **Optional commons contributions:** Planned. Opt-in. Organizations choose what, if anything, to contribute back. Default is private. See "Ecological Knowledge Commons" below.
+
+---
+
+## Ecological Knowledge Commons
+
+_A planned network property that makes all tiers more valuable over time._
+
+**What it is:** A shared, growing body of ecological methodology knowledge, verification evidence, and governance precedents — contributed by participating organizations with their consent. Not raw data or proprietary methodologies. Methodology learnings, governance review precedents, and verification frameworks that benefit the entire ecosystem.
+
+**How it works:** Federated knowledge sharing with sovereignty controls. Each organization decides what to contribute and what stays private. Default is private. Nothing is shared without explicit opt-in. Organizations retain full control over their data and can withdraw contributions.
+
+**Why it matters:** More participants → richer methodology comparisons → faster governance reviews → more credible credits → more participants. This is the network effect that proprietary registries (Verra, Gold Standard) cannot replicate — their knowledge stays siloed.
+
+**Principles:**
+- **Knowledge sovereignty** — each organization controls what they share
+- **Methodological transparency** — shared learnings strengthen the science
+- **Shared governance** — collective standards benefit all participants
+
+**Now vs Next:**
+- **Now:** Public KOI corpus (open, queryable) + private auth-gated data per client. Each engagement is bilateral (Regen ↔ Client). No cross-client knowledge sharing.
+- **Next:** Opt-in federated commons. Organizations that choose to share select methodology learnings and governance precedents (not raw data or proprietary methods) enrich a shared intelligence base. This creates network effects as more organizations participate.
+
+This is not a tier — it's a cross-cutting property that emerges as the registry ecosystem grows. It makes Tier 1 consulting faster (richer comparisons), Tier 2 infrastructure smarter (more training signal), and Tier 3 partnerships more valuable (stronger governance foundation).
+
+---
+
 ## Infrastructure Architecture
 
 ```
@@ -179,3 +211,7 @@ Regen Ledger ─────────────────►│  │ Fuse
 > Claude Desktop gives you a chatbot. We give you an institutional platform.
 
 _Same infrastructure Regen Network built for itself — now available to partners who need registry-grade ecological intelligence._
+
+**The longer version** (for when you need the network angle):
+
+> Our knowledge graph is open — 69,000 documents, queryable by anyone, no auth required. That's deliberate. Ecological data should be a commons, not an enclosure. What we provide is the expertise to build institutional workflows on top of it, and a growing network of organizations whose shared methodology learnings make every participant's credits more credible.

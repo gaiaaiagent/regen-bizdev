@@ -23,6 +23,9 @@ export function Landing() {
             <span className="rounded-full border border-white/20 px-3 py-1">Powered by KOI</span>
             <span className="rounded-full border border-white/20 px-3 py-1">Regen Ledger</span>
           </div>
+          <p className="mt-3 text-xs text-white/40">
+            Open knowledge infrastructure — 69,000+ documents, queryable by anyone. Ecological data is a commons.
+          </p>
         </div>
         {/* Subtle background decoration */}
         <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/5" />
