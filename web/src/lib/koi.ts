@@ -303,6 +303,30 @@ export async function getNeighborhoodForGraph(label: string): Promise<Neighborho
   return { center, nodes, links, totalNeighbors: raw.node_count ? raw.node_count - 1 : nodes.length - 1 };
 }
 
+// --- Chat ---
+
+export interface ChatSource {
+  rid?: string;
+  title?: string;
+  excerpt?: string;
+  score?: number;
+  source?: string;
+  url?: string;
+}
+
+export interface ChatResponse {
+  answer: string;
+  sources: ChatSource[];
+  model: string;
+}
+
+export async function chatKoi(query: string, client?: string, limit = 5): Promise<ChatResponse> {
+  return fetchKoi<ChatResponse>('/chat', {
+    method: 'POST',
+    body: JSON.stringify({ query, client, limit }),
+  });
+}
+
 export async function getEntityDocuments(label: string, limit = 5): Promise<KoiResult[]> {
   const resp = await queryKoi(label, limit);
   return resp.results;

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import { Link, useSearchParams } from 'react-router';
 import * as d3 from 'd3';
 import { useGraphData } from '../hooks/useGraphData';
@@ -6,7 +6,9 @@ import { queryKoi, displayTitle, sourceColor } from '../lib/koi';
 import type { KoiResult } from '../lib/koi';
 import type { GraphNode, GraphLink } from '../lib/graph-types';
 import { getTypeColor, TYPE_COLORS } from '../lib/graph-types';
-import { Leaf, ArrowLeft, RotateCcw, Search, X, ChevronRight } from 'lucide-react';
+import { Leaf, ArrowLeft, RotateCcw, Search, X, ChevronRight, Box, Square } from 'lucide-react';
+
+const ForceGraph3D = lazy(() => import('../components/ForceGraph3D').then(m => ({ default: m.ForceGraph3D })));
 
 function nodeRadius(node: GraphNode): number {
   if (node.isCenter) return 24;
@@ -30,6 +32,7 @@ export function GraphExplorer() {
   const hasFired = useRef(false);
 
   // UI state
+  const [is3D, setIs3D] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<KoiResult[]>([]);
   const [searchLoading, setSearchLoading] = useState(false);
@@ -460,8 +463,21 @@ export function GraphExplorer() {
         <span className="text-sm text-white/40">|</span>
         <span className="text-sm text-white/60">Interactive entity exploration across 69K+ documents</span>
 
+        {/* 3D Toggle */}
+        <button
+          onClick={() => setIs3D(!is3D)}
+          className={`ml-auto flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+            is3D
+              ? 'bg-green-400/20 text-green-300 border border-green-400/30'
+              : 'bg-white/10 text-white/60 border border-white/20 hover:text-white hover:border-white/40'
+          }`}
+        >
+          {is3D ? <Box className="h-3.5 w-3.5" /> : <Square className="h-3.5 w-3.5" />}
+          {is3D ? '3D' : '2D'}
+        </button>
+
         {/* Search in header */}
-        <div ref={searchDropdownRef} className="relative ml-auto">
+        <div ref={searchDropdownRef} className="relative">
           <form onSubmit={handleSearchSubmit} className="flex items-center gap-2">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40" />
@@ -703,11 +719,28 @@ export function GraphExplorer() {
 
         {/* Center — Graph visualization */}
         <div className="relative flex-1 bg-white">
+          {is3D ? (
+            <Suspense fallback={
+              <div className="flex h-full items-center justify-center">
+                <div className="flex flex-col items-center gap-3">
+                  <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-200 border-t-green-600" />
+                  <span className="text-sm font-medium text-green-700">Loading 3D engine...</span>
+                </div>
+              </div>
+            }>
+              <ForceGraph3D
+                data={graph.graphData}
+                onNodeClick={handleNodeClick}
+                onNodeDblClick={handleNodeDblClick}
+              />
+            </Suspense>
+          ) : (
           <svg
             ref={svgRef}
             className="h-full w-full"
             style={{ display: 'block' }}
           />
+          )}
 
           {/* Loading overlay */}
           {graph.loading && (

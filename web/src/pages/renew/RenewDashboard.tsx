@@ -9,6 +9,7 @@ import { ExportButton } from '../../components/ExportButton';
 import { PreparedAnalysisBanner } from '../../components/PreparedAnalysisBanner';
 import { BeyondTheSprint } from '../../components/BeyondTheSprint';
 import { DashboardQuery } from '../../components/DashboardQuery';
+import { ChatPanel } from '../../components/ChatPanel';
 import { ReadinessBreakdown } from '../../components/ReadinessBreakdown';
 import { getLedgerBatches } from '../../lib/koi';
 import { act2 } from '../../data/renew';
@@ -78,6 +79,8 @@ export function RenewDashboard() {
       <PreparedAnalysisBanner />
 
       <DashboardQuery client="renew" />
+
+      <ChatPanel client="renew" />
 
       <div ref={contentRef}>
         <Tabs defaultValue="mapping">
