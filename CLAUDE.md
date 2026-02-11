@@ -8,9 +8,9 @@ A configured Claude agent + web dashboard for pitching Regen Network's registry 
 
 **Parent project:** `/Users/darrenzal/projects/RegenAI/`
 
-## Current Status (Feb 10, 2026)
+## Current Status (Feb 11, 2026)
 
-**DEMO-READY.** Web app built, deployed, client docs ingested into KOI, Explorer page hardened with timeout/fallback, all documentation updated. Ready for GreenBiz 26.
+**THURSDAY DEMO READY.** Landbanking Group demo is Feb 12. Dashboard upgraded with outcome-first headers, interactive Q&A panel, and readiness breakdown. Deployed and verified live.
 
 ### What's Done
 - Web dashboard with live KOI + Ledger integration (React/Vite/Tailwind)
@@ -25,6 +25,10 @@ A configured Claude agent + web dashboard for pitching Regen Network's registry 
 - Nginx proxy fixed (KOI API accessible via `/api/koi`)
 - D3 force-directed Graph Explorer with interactive node expansion
 - Pre-demo checklist, README presenter guide, BUILD_PLAN status updated
+- **DashboardQuery** — interactive Q&A panel with pre-seeded demo chips (cached on mount) + live KOI fallback (5s timeout)
+- **ReadinessBreakdown** — clickable readiness score expands to show score components + "path to 8" with concrete steps
+- **Outcome-first headers** — sharp one-liners replacing descriptive paragraphs, collapsible "About this analysis"
+- **Demo flow updated** — Q&A panel + readiness breakdown steps added to Landbanking automated walkthrough
 
 ### Demo Slam Dunk Fixes (Feb 9, 2026)
 
@@ -118,6 +122,8 @@ A configured Claude agent + web dashboard for pitching Regen Network's registry 
 | `FirstCreditCard` | Concrete "Your First Credit" with project-specific details |
 | `MappingTable` | Credit class mapping with live Ledger batch evidence in expanded rows |
 | `MethodologyComparison` | Side-by-side: registry requirements vs client methodology |
+| `DashboardQuery` | Q&A panel: pre-seeded demo chips (cached) + live KOI fallback (5s timeout) |
+| `ReadinessBreakdown` | Clickable score breakdown with components + "path to 8" next steps |
 
 ### Live Data Sources
 | Source | API | What It Fetches |
@@ -184,7 +190,8 @@ regen-bizdev/
 
 ## Milestones
 
-- **Feb 11** — Biz dev front-end MVP (READY)
+- **Feb 11** — Biz dev front-end MVP (READY) + Thursday demo prep (DONE)
+- **Feb 12** — Landbanking Group demo meeting
 - **Feb 17-19** — GreenBiz 26 (Phoenix) — potential in-person demos
 
 ## Google Drive Access
@@ -200,7 +207,8 @@ Service account: `rag-ingestion-bot@koi-sensor.iam.gserviceaccount.com`
 | `c4e9b3ab` | Feb 8 | RegenAI (parent) | **Main session:** 6-phase outcome-first reframing (web implementation + deployment + all doc updates). Continuation: BT01 ledger verification, 7-issue critique fixes, full repo audit, `/end` skill. |
 | `9df37eeb` | Feb 9 | regen-bizdev | **Demo Slam Dunk:** Adversarial review fixes — eager evidence fetch, query string fixes, PreparedAnalysisBanner, LiveQueryPanel, FirstCreditCard, MappingTable batch evidence, MethodologyComparison, data-demo-target, cached Ledger helpers, presenter note updates. |
 | `fadfb2eb` | Feb 10 | regen-bizdev | **GreenBiz Readiness:** KOI client doc ingestion (196 chunks + 191 entity links), Explorer timeout/fallback, nginx proxy fix, D3 Graph Explorer, doc polish (BUILD_PLAN, README, pre-demo checklist, sprint proposals, web-app-demo URL fix). |
-| *(current)* | Feb 10 | regen-bizdev | **Strategic Reframing:** Knowledge commons, open data philosophy, "Beyond the Sprint" sections. Reframed competitive moat (open data + proprietary workflows), added access model, updated system prompt with 3-tier awareness + openness guidance, created knowledge-commons.md team doc. |
+| `dc7dc2af` | Feb 10 | regen-bizdev | **Strategic Reframing:** Knowledge commons, open data philosophy, "Beyond the Sprint" sections. Reframed competitive moat (open data + proprietary workflows), added access model, updated system prompt with 3-tier awareness + openness guidance, created knowledge-commons.md team doc. |
+| *(current)* | Feb 11 | regen-bizdev | **Thursday Demo Prep:** Post-meeting action plan implementation. Outcome-first dashboard headers, DashboardQuery (Q&A panel with demo chips + live fallback), ReadinessBreakdown ("path to 8"), demo flow tweaks for Landbanking. Both commits deployed and verified live. |
 
 **To load full context from the main implementation session:**
 ```
