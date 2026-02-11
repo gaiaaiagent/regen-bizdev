@@ -23,6 +23,41 @@ export const carbonComparison: ComparisonRow[] = [
   { requirement: 'Data anchoring', registryExpects: 'Content-hashed on Regen Ledger', clientProvides: 'Landler data needs integration', status: 'gap' },
 ];
 
+export interface ScoreComponent {
+  label: string;
+  current: number;
+  max: number;
+  description: string;
+}
+
+export interface PathStep {
+  action: string;
+  gain: number;
+  target: number;
+}
+
+export interface ScoreBreakdown {
+  components: ScoreComponent[];
+  pathForward: PathStep[];
+  targetScore: number;
+}
+
+export const scoreBreakdown: ScoreBreakdown = {
+  components: [
+    { label: 'Carbon methodology alignment', current: 2, max: 3, description: 'Strong — tCO2e measurements map directly to C01-C09' },
+    { label: 'Biodiversity methodology', current: 1, max: 3, description: 'Partial — BT01 mapping started, Landler Index needs transparency' },
+    { label: 'Governance readiness', current: 0, max: 2, description: 'Not started — no methodology submission or review' },
+    { label: 'Data anchoring', current: 1, max: 2, description: 'Landler data exists, needs content hashing + on-chain anchoring' },
+  ],
+  pathForward: [
+    { action: 'Submit carbon methodology docs for C-class review', gain: 1, target: 5 },
+    { action: 'Complete BT01 biodiversity scoring alignment', gain: 1, target: 6 },
+    { action: 'Begin governance review process', gain: 1, target: 7 },
+    { action: 'Establish third-party verification pathway', gain: 1, target: 8 },
+  ],
+  targetScore: 8,
+};
+
 export const act1: Act1Data = {
   title: 'Deal Dossier: Landbanking Group',
   executiveSummary: 'Landbanking Group is a Munich-based natural capital fintech (founded 2022, ~$15M raised) creating "Nature Equity Assets" — multi-dimensional nature outcomes as investable assets via their "Landler" platform. Notable backers include Andre Hoffmann (Roche) and the Prince of Liechtenstein. Key gap: verification/MRV partners + registry infrastructure. Partnership proposition: Landler measures, Regen governs and verifies.',

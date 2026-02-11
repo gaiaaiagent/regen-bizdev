@@ -140,13 +140,35 @@ export const landbankingSteps: DemoStep[] = [
   },
   {
     route: '/landbanking',
+    act: 'Act 0',
+    title: 'Q&A Panel',
+    notes:
+      'Click \'Credit class mapping\' — results appear instantly. Say: "You can ask anything. This is your knowledge base — 69,000 documents of registry methodology, governance discussions, and project precedents." Don\'t type a custom query unless this lands cleanly first.',
+    duration: 12000,
+    actions: [
+      { type: 'scroll-top', delay: 200 },
+      { type: 'click-button', target: 'Credit class mapping', delay: 1500 },
+    ],
+  },
+  {
+    route: '/landbanking',
+    act: 'Act 0',
+    title: 'Readiness Breakdown',
+    notes:
+      'Click the readiness score. Walk through: "You\'re at 4 out of 10. Carbon alignment is strong at 2 of 3. Governance is at zero — that\'s the gap. Here\'s the path to 8." Each step is concrete and specific.',
+    duration: 12000,
+    actions: [
+      { type: 'click-button', target: 'Readiness Score', delay: 1000 },
+    ],
+  },
+  {
+    route: '/landbanking',
     act: 'Act 1',
     title: 'Deal Dossier',
     notes:
       'We prepared this analysis from both alignment memos and prospect materials. The evidence panels show the actual registry documents that informed each assessment. This is what a client engagement starts with.',
     duration: 10000,
     actions: [
-      { type: 'scroll-top', delay: 200 },
       { type: 'click-tab', target: 'Deal Dossier', delay: 800 },
     ],
   },

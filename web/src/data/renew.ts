@@ -14,6 +14,24 @@ export const bt01Comparison: ComparisonRow[] = [
   { requirement: 'Composite score methodology', registryExpects: 'Transparent, peer-reviewed calculation', clientProvides: 'Conservation weighting published (Wallacea Trust)', status: 'aligned' },
 ];
 
+export { type ScoreBreakdown, type ScoreComponent, type PathStep } from './landbanking';
+
+export const scoreBreakdown: import('./landbanking').ScoreBreakdown = {
+  components: [
+    { label: 'Carbon methodology alignment', current: 2, max: 2, description: 'Strong — Verra carbon credits already issued, C-class mapping direct' },
+    { label: 'Biodiversity methodology', current: 1, max: 3, description: 'Partial — Wallacea Trust v2.1 needs BT01 unit conversion' },
+    { label: 'Data completeness', current: 1, max: 3, description: 'Structured field data exists but no content hashing or attestation' },
+    { label: 'Verification pathway', current: 1, max: 2, description: 'BFI identified but not formalized' },
+  ],
+  pathForward: [
+    { action: 'Define BT01 scoring conversion from Wallacea Trust', gain: 1, target: 6 },
+    { action: 'Anchor sample biodiversity survey on-chain', gain: 1, target: 7 },
+    { action: 'Formalize BFI as third-party verifier', gain: 1, target: 8 },
+    { action: 'Submit methodology documentation for review', gain: 1, target: 9 },
+  ],
+  targetScore: 9,
+};
+
 export const act1: Act1Data = {
   title: 'Deal Dossier: Renew/RePlanet',
   executiveSummary: 'Renew/RePlanet is a UK-based biodiversity credit proponent using the Wallacea Trust v2.1 five-taxa methodology to measure ecological restoration outcomes. Their core asset is landscape-scale biodiversity monitoring across 3D Forest Structure, Invertebrates, Breeding Birds, Bat Fauna, and Higher Plants, with conservation-weighted scoring. Key need: registry infrastructure for verifiable, tradeable biodiversity credits backed by field data. Renew has existing carbon credit capability (Verra) and wants to stack biodiversity credits on Regen.',
